@@ -4,21 +4,22 @@ $content = file_get_contents('prod.txt');
 $p = unserialize($content);
 if (count($_POST) > 0) {
     $p[] = ['name' => $_POST['name'],
-            'price' => $_POST['price'],
-            'weight' => $_POST['weight'],
-            'vegan' => $_POST['vegan'],
-            'property' => $_POST['property'] ?? []];
+        'price' => $_POST['price'],
+        'weight' => $_POST['weight'],
+        'vegan' => $_POST['vegan'],
+        'property' => $_POST['property'] ?? []];
     file_put_contents('prod.txt', serialize($p));
 
     header('Location: index.php');
 }
-//var_dump($_FILES);
+
 if (count($_FILES) > 0) {
-    move_uploaded_file($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name'] );
+    move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_POST['image']['name']) ;
 }
+
 ?>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <br/>
     <label>Name:
         <input name= "name" />
@@ -52,11 +53,11 @@ if (count($_FILES) > 0) {
     <input type="checkbox" name="property[]" value="sweets"/> Sweets
     <br/>
     <br/>
-<h>Enter your details</h>
+    <h>Enter your details</h>
     <br/>
     <br/>
     <label>Data
-    <input type="text" name="data" value="" placeholder="ex. Ivan Petrov">
+        <input type="text" name="data" value="" placeholder="ex. Ivan Petrov">
     </label>
     <br/>
     <br/>
@@ -75,9 +76,9 @@ if (count($_FILES) > 0) {
     <input type="radio">Female
     <br/>
     <br/>
+    <input type="file" name="image" accept="image/*" />
+    <br/>
+    <br/>
     <button type="submit">SAVE</button>
-</form>
-<form method="post" enctype="multipart/form-data">
-    <input type="file" name="image" />
-    <button type="submit">Send!</button>
+
 </form>
