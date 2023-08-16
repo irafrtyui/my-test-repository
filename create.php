@@ -14,7 +14,7 @@ if (count($_POST) > 0) {
 }
 
 if (count($_FILES) > 0) {
-    move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_POST['image']['name']) ;
+    move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']) ;
 }
 
 ?>
