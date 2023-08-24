@@ -1,7 +1,7 @@
 <?php
 // чтение из файла, преобразование в массив продуктов
 //$product = file_get_contents('prod.txt');
-include 'C:\Users\HP\PhpstormProjects\my-test-repository\cards\class0.php';
+include 'cards/class0.php';
 $product = file_get_contents('prod.txt');
 $products = unserialize($product);
 
@@ -66,12 +66,13 @@ $pro = array_splice($prod, $from, $NotesOnPage);
 </form>
 <table width="500px" border="1" cellpadding="5">
     <tr>
-        <td><b></b></td><td><b>Name</b></td><td><b>Price</b></td><td><b>Weight</b></td><td><b>Vegan</b></td><td><b>Property</b></td>
+        <td><b></b></td><td><b>Name</b></td><td><b>Price</b></td><td><b>Weight</b></td><td><b>Vegan|Property</b></td>
     </tr>
     <?php foreach ($pro as $v): ?>
         <tr>
-            <td><img src="cards/<?php echo $v->image ?>" width="100px"</td><td><?php echo $v->name ?></td><td><?php echo '$' . $v->price ?></td><td><?php echo $v->weight?></td><td><?php echo $v->vegan?></td><td><?php echo $v->property?></td>
+            <td><?php if(strlen($v->image)>0): ?> <img src="cards/<?php echo $v->image ?>" width="100px"/></td><td><?php echo $v->name ?></td><td>$<?php echo $v->price ?></td><td><?php echo $v->weight?></td><td><?php echo $v->GetVeganAndProperty()?></td>
         </tr>
+    <?php endif; ?>
     <?php endforeach; ?>
     <?php function sum($array){
         $sum = 0;
@@ -82,7 +83,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     }
     ?>
     <tr>
-        <td colspan="6"><?php echo 'Total price = ' . sum($pro);?></td>
+        <td colspan="6">Total price = <?php echo sum($pro);?></td>
     </tr>
 </table>
 
