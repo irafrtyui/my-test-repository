@@ -5,13 +5,9 @@ $p = unserialize($content);
 include 'cards\class0.php';
 if ((count($_POST) > 0) && (count($_FILES) > 0)) {
     move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']) ;
-$pr = new Product();
+$pr = new Product($_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']  );
     $pr->image = $_FILES['image']['name'];
-    $pr->name = $_POST['name'];
-    $pr->price = $_POST['price'];
-    $pr->weight = $_POST['weight'];
-    $pr->vegan = $_POST['vegan'];
-    $pr->property = $_POST['property'];
+
 $p[] = $pr;
 
     file_put_contents('prod.txt', serialize($p));

@@ -70,9 +70,13 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     </tr>
     <?php foreach ($pro as $v): ?>
         <tr>
-            <td><?php if(strlen($v->image)>0): ?> <img src="cards/<?php echo $v->image ?>" width="100px"/></td><td><?php echo $v->name ?></td><td>$<?php echo $v->price ?></td><td><?php echo $v->weight?></td><td><?php echo $v->GetVeganAndProperty()?></td>
+            <td><?php if(strlen($v->image)>0): ?> <img src="cards/<?php echo $v->image ?>" width="100px"/></td> <?php endif; ?>
+            <td><?php echo $v ?></td>
+            <td>$<?php echo $v->price ?></td>
+            <td><?php echo $v->weight?></td>
+            <td><?php echo $v->GetVeganAndProperty()?></td>
         </tr>
-    <?php endif; ?>
+
     <?php endforeach; ?>
     <?php function sum($array){
         $sum = 0;
