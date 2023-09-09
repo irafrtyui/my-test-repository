@@ -2,6 +2,7 @@
 // чтение из файла, преобразование в массив продуктов
 //$product = file_get_contents('prod.txt');
 include 'cards/class0.php';
+
 $product = file_get_contents('prod.txt');
 $products = unserialize($product);
 
@@ -63,10 +64,14 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     </label>
     <button type="submit">SEARCH</button>
     <a href="create1.php">Create a new record</a>
+    <br/>
+    <br/>
+    <a href="cart.php"><b>View Cart</b></a>
+
 </form>
 <table width="500px" border="1" cellpadding="5">
     <tr>
-        <td><b></b></td><td><b>Name</b></td><td><b>Price</b></td><td><b>Weight</b></td><td><b>Vegan|Property</b></td>
+        <td><b></b></td><td><b>Name</b></td><td><b>Price</b></td><td><b>Weight</b></td><td><b>Vegan|Property</b></td><td><b>Add to cart</b></td>
     </tr>
     <?php foreach ($pro as $v): ?>
         <tr>
@@ -75,6 +80,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
             <td>$<?php echo $v->price ?></td>
             <td><?php echo $v->weight?></td>
             <td><?php echo $v->GetVeganAndProperty()?></td>
+            <td><button type="submit">SAVE</button></td>
         </tr>
 
     <?php endforeach; ?>

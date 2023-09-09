@@ -21,9 +21,8 @@ class Product {
         return $this->name;
     }
 
-
-
     public function GetVeganAndProperty() {
         return $this->vegan . '|' . $this->property;
     }
 }
+

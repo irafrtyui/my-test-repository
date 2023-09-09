@@ -18,4 +18,6 @@ $chicken->image = 'chiken.jpg';
 
 
  $p = [$milk, $bread, $chocolate, $chicken];
+
+
 file_put_contents('prod.txt',serialize($p));
