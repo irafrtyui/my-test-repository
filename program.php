@@ -66,7 +66,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     <a href="create1.php">Create a new record</a>
     <br/>
     <br/>
-    <a href="cart.php"><b>View Cart</b></a>
+    <a href="cart1.php"><b>View Cart</b></a>
 
 </form>
 <table width="500px" border="1" cellpadding="5">
@@ -80,7 +80,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
             <td>$<?php echo $v->price ?></td>
             <td><?php echo $v->weight?></td>
             <td><?php echo $v->GetVeganAndProperty()?></td>
-            <td><button type="submit">SAVE</button></td>
+            <td><a href="cart.php?products=<?php echo $v ?>" <b>Add</b></a></td>
         </tr>
 
     <?php endforeach; ?>
