@@ -1,4 +1,6 @@
 <?php
+namespace Product;
+
 class Product {
     public $image;
     public $name;

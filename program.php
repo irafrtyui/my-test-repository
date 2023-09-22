@@ -1,8 +1,8 @@
 <?php
 // чтение из файла, преобразование в массив продуктов
 //$product = file_get_contents('prod.txt');
-include 'cards/class0.php';
 
+include 'Product\Product.php';
 $product = file_get_contents('prod.txt');
 $products = unserialize($product);
 
