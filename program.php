@@ -1,8 +1,10 @@
 <?php
-// чтение из файла, преобразование в массив продуктов
-//$product = file_get_contents('prod.txt');
 
-include 'Product\Product.php';
+spl_autoload_register(function($class){
+    include $class . '.php';
+
+});
+//include 'Product\Product.php';
 $product = file_get_contents('prod.txt');
 $products = unserialize($product);
 

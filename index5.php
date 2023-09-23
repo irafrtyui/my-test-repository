@@ -1,6 +1,9 @@
 <?php
-include 'Product\Product.php';
+//include 'Product\Product.php';
+spl_autoload_register(function($class){
+    include $class . '.php';
 
+});
 //include 'C:\Users\HP\PhpstormProjects\my-test-repository\cards\Product.php';
 $milk = new Product\Product('milk', 40,2000, 'vegan', 'dairy');
 $milk->image = 'milk.png';

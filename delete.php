@@ -1,5 +1,9 @@
 <?php
-include 'Product/ShoppingCart.php';
+//include 'Product/ShoppingCart.php';
+spl_autoload_register(function($class){
+    include $class . '.php';
+
+});
 $shoppingcart = unserialize(file_get_contents('cart.txt'));
 
 //var_dump($shoppingcart);

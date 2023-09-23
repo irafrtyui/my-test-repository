@@ -1,6 +1,9 @@
 <?php
+spl_autoload_register(function($class){
+    include $class . '.php';
 
-include 'Product\ShoppingCart.php';
+});
+//include 'Product\ShoppingCart.php';
 $shopcart = file_get_contents('cart.txt');
 $cart = unserialize($shopcart);
 ?>

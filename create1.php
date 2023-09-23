@@ -1,8 +1,11 @@
 <?php
+spl_autoload_register(function($class){
+    include $class . '.php';
 
+});
 $content = file_get_contents('prod.txt');
 $p = unserialize($content);
-include 'Product\Product.php';
+//include 'Product\Product.php';
 if ((count($_POST) > 0) && (count($_FILES) > 0)) {
     move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']) ;
 $pr = new Product\Product($_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']  );
@@ -13,11 +16,6 @@ $p[] = $pr;
     file_put_contents('prod.txt', serialize($p));
 
     header('Location: program.php');
-
-
-//if (count($_FILES) > 0) {
-    //move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']) ;
-
 }
 
 ?>
