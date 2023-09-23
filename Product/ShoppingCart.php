@@ -17,16 +17,44 @@ class ShoppingCart
         }
     }
 
+  //  public function getTotal()
+   // {
+    //    static $total = null;
+    //    foreach ($this->items as $item) {
+     //       if ($total == null) {
+        //        $total = $total + $item['price'] * $item['quantity'];
+     //       } elseif ($total != null) {
+               //     return $total;
+      //          }
+
+     //       }
+     //   }
+
     public function getTotal()
     {
-        $total = 0;
+       static $total = null;
+       $total = 0;
+       if ($total != null) {
+           return $total;
+       }
         foreach ($this->items as $item) {
-            //    $total += $item['name']->price * $item['quantity'];
             $total += $item['price'] * $item['quantity'];
         }
         return $total;
     }
+
+
+
+
+
+        //     static $total = 0;
+    //    if ($total = 0) {
+     //       foreach ($this->items as $item) {
+     //          $total = $total + $item['price'] * $item['quantity'];}
+     //           if ($total > 0) {
+     //               return $total;
+         //       }
+    //        }
+  //  }
 }
-
-
 
