@@ -9,6 +9,7 @@ class Product {
     public $vegan;
     public $property;
 
+
     public function __construct($name, $price, $weight, $vegan, $property)
     {
         $this->name = $name;
@@ -17,8 +18,11 @@ class Product {
         $this->vegan = $vegan;
         $this->property = $property;
     }
-
-    public function __toString(): string
+    public static function create($name, $price, $weight, $vegan, $property)
+    {
+        return Product::create($name, $price, $weight, $vegan, $property);
+    }
+    public function __toString():string
     {
         return $this->name;
     }
