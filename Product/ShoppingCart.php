@@ -8,12 +8,15 @@ class ShoppingCart
 
     public function addItem($product, $price, $quantity)
     {
-        $this->items[] = ['name' => $product, 'price' => $price, 'quantity' => $quantity];
-
-        foreach ($this->items as $item) {
+    $found = false;
+        foreach ($this->items as &$item) {
             if ($item['name'] == $product) {
                 $item['quantity']++;
+                $found = true;
             }
+        }
+        if ($found == false) {
+            $this->items[] = ['name' => $product, 'price' => $price, 'quantity' => $quantity];
         }
     }
 
@@ -21,10 +24,10 @@ class ShoppingCart
     public function getTotal()
     {
         static $total = null;
-        $total = 0;
         if ($total != null) {
             return $total;
         }
+        $total = 0;
         foreach ($this->items as $item) {
             $total += $item['price'] * $item['quantity'];
         }
