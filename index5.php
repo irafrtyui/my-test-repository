@@ -1,23 +1,14 @@
 <?php
 include 'autoload.php';
 
-$milk = Product\Product::create('milk', 40,2000, 'vegan', 'dairy');
-$milk->image = 'milk.png';
+$milk = Product\Product::create('milk.png', 'milk', 40,2000, 'vegan', 'dairy');
 
+$bread = Product\Product::create('bread.jpeg','bread', 15, 3000,'vegan', 'cereals');
 
-$bread = Product\Product::create('bread', 15, 3000,'vegan', 'cereals');
-$bread->image = 'bread.jpeg';
+$chocolate = Product\Product::create('chocolate.jpg', 'chocolate',35, 400, 'non-vegan', 'sweets');
 
-
-$chocolate = Product\Product::create('chocolate',35, 400, 'non-vegan', 'sweets');
-$chocolate->image = 'chocolate.jpg';
-
-
-$chicken = Product\Product::create('chicken',50, 4000, 'non-vegan', 'meat');
-$chicken->image = 'chiken.jpg';
-
+$chicken = Product\Product::create('chiken.jpg','chicken',50, 4000, 'non-vegan', 'meat');
 
  $p = [$milk, $bread, $chocolate, $chicken];
-
 
 file_put_contents('prod.txt',serialize($p));

@@ -10,17 +10,18 @@ class Product {
     public $property;
 
 
-    public function __construct($name, $price, $weight, $vegan, $property)
+    public function __construct($image, $name, $price, $weight, $vegan, $property)
     {
+        $this->image = $image;
         $this->name = $name;
         $this->price = $price;
         $this->weight = $weight;
         $this->vegan = $vegan;
         $this->property = $property;
     }
-    public static function create($name, $price, $weight, $vegan, $property)
+    public static function create($image, $name, $price, $weight, $vegan, $property)
     {
-        return Product::create($name, $price, $weight, $vegan, $property);
+       return new Product($image, $name, $price, $weight, $vegan, $property);
     }
     public function __toString():string
     {
