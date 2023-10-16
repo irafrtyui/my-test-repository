@@ -1,45 +1,45 @@
 <?php
 
 interface ShapeInterface {
-    public function __construct($name);
-    public function Area (): int;
+    //public function __construct($name);
+    public function Area(): int;
 }
 
 class Circle implements ShapeInterface {
-    public $name;
+    private $name = 'Circle';
     public $radius;
 
-    public function __construct($name) {
-        $this->name = $name;
-    }
+   // public function __construct($name) {
+     //   $this->name = $name;
+   // }
     public function Area(): int {
         return $this->radius * $this->radius * pi();
     }
 }
 
 class Rectangle implements ShapeInterface {
-    public $name;
+    private $name = 'Rectangle';
     public $lenght;
     public $width;
 
 
-    public function __construct($name) {
-        $this->name = $name;
-    }
+   // public function __construct($name) {
+     //   $this->name = $name;
+    //}
     public function Area(): int {
         return $this->lenght * $this->width;
     }
 }
 
 class Triangle implements ShapeInterface {
-    public $name;
+    private $name = 'Triangle';
     public $height;
     public $base;
 
 
-    public function __construct($name) {
-        $this->name = $name;
-    }
+   // public function __construct($name) {
+    //    $this->name = $name;
+    //}
 
     public function Area(): int {
     return (1/2) * $this->height * $this->base;
@@ -47,14 +47,14 @@ class Triangle implements ShapeInterface {
 }
 
 
-$Circle = new Circle('Circle');
+$Circle = new Circle;
 $Circle->radius = 16;
 
-$Rectangle = new Rectangle('Rectangle');
+$Rectangle = new Rectangle;
 $Rectangle->lenght = 10;
 $Rectangle->width = 12;
 
-$Triangle = new Triangle('Triangle');
+$Triangle = new Triangle;
 $Triangle->height = 9;
 $Triangle->base = 8;
 

@@ -1,27 +1,20 @@
 <?php
-//include 'Product/ShoppingCart.php';
-spl_autoload_register(function($class){
-    include $class . '.php';
-
-});
+include 'autoload.php';
 $shoppingcart = unserialize(file_get_contents('cart.txt'));
 
-//var_dump($shoppingcart);
-
-
-if (array_key_exists('delete', $_GET) && strlen($_GET['delete']) > 0) {
+if (array_key_exists('delete', $_GET) && strlen($_GET['delete']) >= 0) {
     $c = $_GET['delete'];
-    foreach ($shoppingcart->items as $p) {
-        if ($c === $p['name']) {
-            //
-        } else {
-            unset ($p['name']);
+    foreach ($shoppingcart->items as $i => &$p) {
+        if ($c === $p['name'] && $p['quantity'] > 0) {
+            $p['quantity']--;
         }
+        if ($p['quantity'] == 0) {
+            unset($shoppingcart->items[$i]);
+        }
+    }
 }
-}
+    $s = serialize($shoppingcart);
+    file_put_contents('cart.txt', $s);
 
 
-$s = serialize($shoppingcart->items);
-file_put_contents('cart.txt', $s);
-
-header('Location: cart1.php');
+header('Location: /cart1.php');

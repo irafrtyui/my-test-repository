@@ -6,7 +6,9 @@ class Counter {
 
  public function __construct($value) {
      $this->value = $value;
+     $value = new Counter(0);
  }
+
 
  public function increment() {
      $this->value += 1;
@@ -22,10 +24,10 @@ class Counter {
     }
 }
 
-$value = new Counter(0);
 
 
+
 $value->increment();
 $value->increment();
 $value->increment();
-echo $value->getValue;
+

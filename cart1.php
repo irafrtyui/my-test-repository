@@ -1,12 +1,16 @@
 <?php
-spl_autoload_register(function($class){
-    include $class . '.php';
+include 'autoload.php';
 
-});
-//include 'Product\ShoppingCart.php';
 $shopcart = file_get_contents('cart.txt');
 $cart = unserialize($shopcart);
-?>
+if ($cart == ''): ?>
+    <b>ShoppingCart empty</b>
+    <br/>
+    <br/>
+    <a href="program.php">Come back</a>
+<?php die; ?>
+<?php  endif; ?>
+
     <table width="500px" border="1" cellpadding="5">
     <tr>
         <td><b>Name</b></td><td><b>Price</b></td><td><b>Quantity</b></td>
@@ -26,6 +30,6 @@ $cart = unserialize($shopcart);
 
 
 
-        <a href="program.php">Come back</a>
+        <a href="/program.php">Come back</a>
         <br/>
         <br/>

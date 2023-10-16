@@ -1,22 +1,29 @@
 <?php
-spl_autoload_register(function($class){
-    include $class . '.php';
 
-});
-$content = file_get_contents('prod.txt');
-$p = unserialize($content);
-//include 'Product\Product.php';
+include 'autoload.php';
+$login = 'root';
+$password = '';
+$pdo = new PDO('mysql:host=localhost;dbname=project', $login, $password);
+//$content = file_get_contents('prod.txt');
+//$p = unserialize($content);
+
+
 if ((count($_POST) > 0) && (count($_FILES) > 0)) {
-    move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']) ;
-$pr = new Product\Product($_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']  );
-    $pr->image = $_FILES['image']['name'];
+    move_uploaded_file($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']);
 
-$p[] = $pr;
-
-    file_put_contents('prod.txt', serialize($p));
-
-    header('Location: program.php');
+    $sql = sprintf("INSERT INTO product (`image`, `name`, `price`, `weight`, `vegan`, `property`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');",
+        $_FILES['image']['name'], $_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']);
+    $pdo->query($sql);
+    header('Location: /program.php');
 }
+
+
+
+//$pr = Product\Product::create($_FILES['image']['name'], $_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']  );
+//$p[] = $pr;
+ //   file_put_contents('prod.txt', serialize($p));
+
+
 
 ?>
 

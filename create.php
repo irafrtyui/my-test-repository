@@ -5,21 +5,20 @@ $p = unserialize($content);
 if ((count($_POST) > 0) && (count($_FILES) > 0)) {
     move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']) ;
 
-    $p[] = ['name' => $_POST['name'],
-        'price' => $_POST['price'],
-        'weight' => $_POST['weight'],
-        'vegan' => $_POST['vegan'],
-        'property' => $_POST['property'] ?? [],
-        'image' => $_FILES['image']['name']];
 
-    file_put_contents('prod.txt', serialize($p));
+    $sql = sprintf("INSERT INTO product (`image`, `name`, `price`, `weight`, `vegan`, `property`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');",
+        $_FILES['image']['name'], $_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']);
+    $pdo->query($sql);
+   // $p[] = ['name' => $_POST['name'],
+   //     'price' => $_POST['price'],
+   //     'weight' => $_POST['weight'],
+    //    'vegan' => $_POST['vegan'],
+   //     'property' => $_POST['property'] ?? [],
+    //    'image' => $_FILES['image']['name']];
 
-    header('Location: index.php');
+  //  file_put_contents('prod.txt', serialize($p));
 
-
-//if (count($_FILES) > 0) {
-    //move_uploaded_file ($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']) ;
-
+    header('Location: /index.php');
 }
 
 ?>

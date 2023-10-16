@@ -1,12 +1,9 @@
 
 <?php
-spl_autoload_register(function($class){
-include $class . '.php';
-});
-//include 'Product\Product.php';
+include 'autoload.php';
 $products = file_get_contents('prod.txt');
 $pr = unserialize($products);
-//include 'Product/ShoppingCart.php';
+
 
 $shopcart = file_get_contents('cart.txt');
 $shoppingcart = unserialize($shopcart);

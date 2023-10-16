@@ -1,15 +1,31 @@
 <?php
 
-spl_autoload_register(function($class){
-    include $class . '.php';
+include 'autoload.php';
+$login = 'root';
+$password = '';
+$pdo = new PDO('mysql:host=localhost;dbname=project', $login, $password);
+//$product = file_get_contents('prod.txt');
+//$products = unserialize($product);
+$sql = 'SELECT * FROM product ORDER BY price ';
+$result = $pdo->query($sql);
+$prod = [];
+foreach ($result as $item){
+$product = Product\Product::create($item['image'], $item['name'], $item['price'],$item['weight'], $item['vegan'], $item['property']);
+$prod[] = $product;
+}
+if (array_key_exists('keywords', $_GET) && strlen($_GET['keywords']) > 0) {
+    $q = $_GET['keywords'];
+    $sql = $sql . 'WHERE name = "' . $q . '"';
+}
 
-});
-//include 'Product\Product.php';
-$product = file_get_contents('prod.txt');
-$products = unserialize($product);
+
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+    $sql = $sql . 'LIMIT ' . 0 . ',' . 2;
+}
 
 // сортировка по возрастанию
-function sortarray($array){
+/*function sortarray($array){
     for ($i = 1; $i < count($array) - 1; $i++) {
         for ($j = 0; $j < count($array) - 1; $j++) {
             if (($array[$j]->price) > ($array[$j + 1]->price)) {
@@ -22,10 +38,10 @@ function sortarray($array){
     return $array;
 }
 $prod = sortarray($products);
-
+*/
 
 // GET - запрос
-if (array_key_exists('keywords', $_GET) && strlen($_GET['keywords']) > 0) {
+/*if (array_key_exists('keywords', $_GET) && strlen($_GET['keywords']) > 0) {
     $q = $_GET['keywords'];
     foreach ($prod as $i => $v) {
         if (false !== strpos($v->name, $q)) {
@@ -51,7 +67,7 @@ $PagesCount = ceil($count / $NotesOnPage);
 
 $pro = array_splice($prod, $from, $NotesOnPage);
 //var_dump($product);
-
+*/
 ?>
 
 
@@ -75,14 +91,14 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     <tr>
         <td><b></b></td><td><b>Name</b></td><td><b>Price</b></td><td><b>Weight</b></td><td><b>Vegan|Property</b></td><td><b>Add to cart</b></td>
     </tr>
-    <?php foreach ($pro as $v): ?>
+    <?php foreach ($prod as $v): ?>
         <tr>
-            <td><?php if(strlen($v->image)>0): ?> <img src="cards/<?php echo $v->image ?>" width="100px"/></td> <?php endif; ?>
+            <td><?php if(strlen($v->image) > 0): ?> <img src="cards/<?php echo $v->image ?>" width="100px"/></td> <?php endif; ?>
             <td><?php echo $v ?></td>
             <td>$<?php echo $v->price ?></td>
             <td><?php echo $v->weight?></td>
             <td><?php echo $v->GetVeganAndProperty()?></td>
-            <td><a href="cart.php?products=<?php echo $v ?>" <b>Add</b></a></td>
+            <td><a href="/cart.php?products=<?php echo $v ?>" <b>Add</b></a></td>
         </tr>
 
     <?php endforeach; ?>
@@ -95,11 +111,11 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     }
     ?>
     <tr>
-        <td colspan="6">Total price = <?php echo sum($pro);?></td>
+        <td colspan="6">Total price = <?php echo sum($prod);?></td>
     </tr>
 </table>
 
-<?php for($k = 1; $k <= $PagesCount; $k++){
-    echo "<a href=\"?page=$k\">$k </a>";
-}
+<?php // for($k = 1; $k <= 2; $k++){
+   // echo "<a href=\"?page=$k\">$k </a>";
+//}
 ?>
