@@ -1,12 +1,9 @@
 <?php
 
 include 'autoload.php';
-$login = 'root';
-$password = '';
-$pdo = new PDO('mysql:host=localhost;dbname=project', $login, $password);
+
 //$content = file_get_contents('prod.txt');
 //$p = unserialize($content);
-
 
 if ((count($_POST) > 0) && (count($_FILES) > 0)) {
     move_uploaded_file($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']);
@@ -14,6 +11,7 @@ if ((count($_POST) > 0) && (count($_FILES) > 0)) {
     $sql = sprintf("INSERT INTO product (`image`, `name`, `price`, `weight`, `vegan`, `property`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');",
         $_FILES['image']['name'], $_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']);
     $pdo->query($sql);
+    // это он просто не видит переменную из файла, но фактически оно должно работать
     header('Location: /program.php');
 }
 
