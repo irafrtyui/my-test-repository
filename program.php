@@ -1,9 +1,7 @@
 <?php
 
 include 'autoload.php';
-$login = 'root';
-$password = '';
-$pdo = new PDO('mysql:host=localhost;dbname=project', $login, $password);
+
 //$product = file_get_contents('prod.txt');
 //$products = unserialize($product);
 $sql = 'SELECT * FROM product ORDER BY price ';
@@ -21,8 +19,14 @@ if (array_key_exists('keywords', $_GET) && strlen($_GET['keywords']) > 0) {
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
-    $sql = $sql . 'LIMIT ' . 0 . ',' . 2;
+    } else {
+    $page = 1;
 }
+    $NotesOnPage = 2;
+    $from = ($page-1) * $NotesOnPage;
+    $sql = $sql . 'LIMIT ' . $from . ',' . $NotesOnPage;
+
+
 
 // сортировка по возрастанию
 /*function sortarray($array){
@@ -115,7 +119,10 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     </tr>
 </table>
 
-<?php // for($k = 1; $k <= 2; $k++){
-   // echo "<a href=\"?page=$k\">$k </a>";
-//}
+<?php
+$count = count($prod);
+$PagesCount = ceil($count / $NotesOnPage);
+for($k = 1; $k <= $PagesCount; $k++){
+    echo "<a href=\"?page=$k\">$k </a>";
+}
 ?>
