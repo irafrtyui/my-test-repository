@@ -22,7 +22,7 @@ if (isset($_GET['page'])) {
     } else {
     $page = 1;
 }
-    $NotesOnPage = 2;
+    $NotesOnPage = 3;
     $from = ($page-1) * $NotesOnPage;
     $sql = $sql . 'LIMIT ' . $from . ',' . $NotesOnPage;
 
@@ -120,9 +120,13 @@ $pro = array_splice($prod, $from, $NotesOnPage);
 </table>
 
 <?php
-$count = count($prod);
+$sq = 'SELECT COUNT(*) FROM product';
+$st = $pdo->prepare($sq);
+$st->execute();
+$count = $st->fetchColumn();
+//$count = count($prod);
 $PagesCount = ceil($count / $NotesOnPage);
-for($k = 1; $k <= $PagesCount; $k++){
+for($k = 1; $k <= $NotesOnPage; $k++){
     echo "<a href=\"?page=$k\">$k </a>";
 }
 ?>
