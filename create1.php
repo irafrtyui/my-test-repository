@@ -1,7 +1,7 @@
 <?php
 
 include 'autoload.php';
-
+include 'auth.php';
 //$content = file_get_contents('prod.txt');
 //$p = unserialize($content);
 
