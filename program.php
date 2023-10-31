@@ -4,27 +4,57 @@ include 'autoload.php';
 
 //$product = file_get_contents('prod.txt');
 //$products = unserialize($product);
-$sql = 'SELECT * FROM product ORDER BY price ';
-$result = $pdo->query($sql);
-$prod = [];
-foreach ($result as $item){
-$product = Product\Product::create($item['image'], $item['name'], $item['price'],$item['weight'], $item['vegan'], $item['property']);
-$prod[] = $product;
-}
+$sql = 'SELECT * FROM product ';
+
+/**
+ * @burm
+ ***************************************************
+ * начиная от сюда
+ * эта часть вся должна быть ДО вызова запроса, а у тебя была после
+ *
+ * ты сначала формируешь запрос, чтобы его вызвать и в зависимости от запроса
+ * ты получишь тот или иной результат.
+ *
+ * а у тебя было, что ты вызвала запрос SELECT * FROM product ORDER BY price
+ * получила результат,
+ * и потом дописывается $sql переменную добавляя WHERE и LIMIT..
+ * но результат к этому моменту уже получен, поэтому все что ты там конкатенировала уже ни на что не влияет
+ */
 if (array_key_exists('keywords', $_GET) && strlen($_GET['keywords']) > 0) {
     $q = $_GET['keywords'];
     $sql = $sql . 'WHERE name = "' . $q . '"';
 }
 
+$sql .= ' ORDER BY price ';
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
     } else {
-    $page = 1;
+    if (isset($_COOKIE['page'])) {
+        $page = $_COOKIE['page'];
+    } else {
+        $page = 1;
+    }
 }
-    $NotesOnPage = 3;
-    $from = ($page-1) * $NotesOnPage;
-    $sql = $sql . 'LIMIT ' . $from . ',' . $NotesOnPage;
+
+setcookie('page', $page);
+$NotesOnPage = 3;
+$from = ($page-1) * $NotesOnPage;
+$sql = $sql . 'LIMIT ' . $from . ',' . $NotesOnPage;
+/**
+ * @burm
+ ***************************************************
+ * заканчивая тут
+ */
+
+
+$result = $pdo->query($sql);
+$prod = [];
+foreach ($result as $item){
+    $product = Product\Product::create($item['image'], $item['name'], $item['price'],$item['weight'], $item['vegan'], $item['property']);
+    $prod[] = $product;
+}
+
 
 
 

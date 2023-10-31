@@ -1,0 +1,69 @@
+<html>
+<style>
+
+</style>
+<body>
+<h1 class="x"> </h1>
+<button id="AC" onclick="">AC</button>
+<button id="DEL" onclick="">DEL</button>
+<button id="division" onclick="Operation('/')">/</button>
+<br/>
+<br/>
+<button onclick="showNumber(1)">1</button>
+<button onclick="showNumber(2)">2</button>
+<button onclick="showNumber(3)">3</button>
+<button id="multiplication" onclick="Operation('*')">*</button>
+<br/>
+<br/>
+<button onclick="showNumber(4)">4</button>
+<button onclick="showNumber(5)">5</button>
+<button onclick="showNumber(6)">6</button>
+<button id="plus" onclick="Operation('+')">+</button>
+<br/>
+<br/>
+<button onclick="showNumber(7)">7</button>
+<button onclick="showNumber(8)">8</button>
+<button onclick="showNumber(9)">9</button>
+<button id="deduction" onclick="Operation('-')">-</button>
+<br/>
+<br/>
+<button id="point" onclick="">.</button>
+<button  onclick="showNumber(0)">0</button>
+<button id="result" onclick="Operation('=')">=</button>
+
+<script>
+    current = 0;
+    NewNum = false;
+    PendingOp = '';
+function showNumber(n) {
+   n = document.querySelector('h1').innerText += n;
+   return n;
+}
+   // num1 = document.querySelector('.x');
+   // num2 = document.querySelector('.x').innerText += num2;
+
+function Operation (Op){
+    readout = document.querySelector('.x');
+    if (NewNum && PendingOp !== "=") {
+        readout = current;
+    }
+    else {
+        NewNum = true;
+        if ('+' === PendingOp)
+            current += parseInt(readout);
+         else if (( '-' === PendingOp ))
+            current -= parseInt(readout);
+        else if (( '*' === PendingOp ))
+            current *= parseInt(readout);
+        else if (( '/' === PendingOp ))
+            current /= parseInt(readout);
+        else
+            current = parseInt(readout);
+        readout = current;
+        PendingOp = Op;
+    }
+}
+
+</script>
+</body>
+</html>
