@@ -3,8 +3,8 @@
 
 </style>
 <body>
-<h1 class="x"> </h1>
-<button id="AC" onclick="">AC</button>
+<h1 class="x" style="height: 30px"> </h1>
+<button id="AC" onclick="AC()">AC</button>
 <button id="DEL" onclick="">DEL</button>
 <button id="division" onclick="Operation('/')">/</button>
 <br/>
@@ -27,41 +27,47 @@
 <button id="deduction" onclick="Operation('-')">-</button>
 <br/>
 <br/>
-<button id="point" onclick="">.</button>
+<button id="point" onclick="showNumber('.')">.</button>
 <button  onclick="showNumber(0)">0</button>
 <button id="result" onclick="Operation('=')">=</button>
 
 <script>
     current = 0;
-    NewNum = false;
     PendingOp = '';
 function showNumber(n) {
-   n = document.querySelector('h1').innerText += n;
-   return n;
+    if (n === '.' && document.querySelector('h1').innerText.indexOf('.') > -1) {
+        return;
+    }
+        document.querySelector('h1').innerText += n;
 }
-   // num1 = document.querySelector('.x');
-   // num2 = document.querySelector('.x').innerText += num2;
 
 function Operation (Op){
     readout = document.querySelector('.x');
-    if (NewNum && PendingOp !== "=") {
-        readout = current;
+    if (Op !== "=") {
+        current = parseInt(readout.innerText);
+        PendingOp = Op;
+        readout.innerText = '';
     }
     else {
-        NewNum = true;
-        if ('+' === PendingOp)
-            current += parseInt(readout);
-         else if (( '-' === PendingOp ))
-            current -= parseInt(readout);
-        else if (( '*' === PendingOp ))
-            current *= parseInt(readout);
-        else if (( '/' === PendingOp ))
-            current /= parseInt(readout);
-        else
-            current = parseInt(readout);
-        readout = current;
-        PendingOp = Op;
+        if ('+' === PendingOp) {
+            current += parseInt(readout.innerText);
+        } else if ('-' === PendingOp) {
+            current -= parseInt(readout.innerText);
+        } else if ('*' === PendingOp) {
+            current *= parseInt(readout.innerText);
+        } else if ('/' === PendingOp) {
+            current /= parseInt(readout.innerText);
+        } else if (parseInt(readout.innerText) / 0) {
+                alert('division by 0 is not allowed');
+            } else {
+                current = parseInt(readout.innerText);
+            }
+        readout.innerText = current;
+        }
     }
+function AC () {
+    readout = document.querySelector('.x');
+    readout.innerText = '';
 }
 
 </script>

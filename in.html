@@ -1,0 +1,42 @@
+<html>
+<style>
+</style>
+
+<body onmousemove="mouseMove(event)">
+<div id="a" style="width: 60px;height: 60px;background: red;position: absolute"
+        onmousedown="mouseDown()"
+        onmouseup="mouseUp()"
+
+
+></div>
+</body>
+<script>
+    element = document.querySelector('#a');
+    moving = false;
+
+    function mouseDown(){
+        moving = true;
+    }
+
+    function mouseUp(){
+        moving = false;
+    }
+
+    function mouseMove(event) {
+
+        if (moving) {
+            element.style.top = event.pageY;
+            element.style.left = event.pageX;
+        }
+        if (element.style.left === (event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY < (window.innerWidth / 2))) {
+            element.style.color = 'yellow';
+        }
+        if (element.style.left === (event.pageX > (window.innerHeight / 2) < window.innerHeight) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
+            element.style.color = 'green';
+    }
+        if (element.style.left === (event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
+            element.style.color = 'blue';
+        }
+    }
+</script>
+</html>
