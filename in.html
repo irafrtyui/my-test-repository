@@ -23,20 +23,25 @@
     }
 
     function mouseMove(event) {
-
+    halfWidth = window.innerWidth / 2;
+    halfHeight = window.innerHeight / 2;
         if (moving) {
             element.style.top = event.pageY;
             element.style.left = event.pageX;
+
+        if ((event.pageX < halfWidth) && (event.pageY < halfHeight)) {
+            element.style.backgroundColor = 'red';
         }
-        if ((event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY < (window.innerWidth / 2))) {
+        if ((event.pageX < halfWidth) && (event.pageY > halfHeight)) {
             element.style.backgroundColor = 'yellow';
         }
-        if ((event.pageX > (window.innerHeight / 2) < window.innerHeight) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
+        if ((event.pageX > halfWidth ) && (event.pageY > halfHeight)) {
             element.style.backgroundColor = 'green';
     }
-        if ((event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
+        if ((event.pageX > halfWidth) && (event.pageY < halfHeight)) {
             element.style.backgroundColor = 'blue';
         }
+    }
     }
 </script>
 </html>
