@@ -28,14 +28,14 @@
             element.style.top = event.pageY;
             element.style.left = event.pageX;
         }
-        if (element.style.left === (event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY < (window.innerWidth / 2))) {
-            element.style.color = 'yellow';
+        if ((event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY < (window.innerWidth / 2))) {
+            element.style.backgroundColor = 'yellow';
         }
-        if (element.style.left === (event.pageX > (window.innerHeight / 2) < window.innerHeight) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
-            element.style.color = 'green';
+        if ((event.pageX > (window.innerHeight / 2) < window.innerHeight) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
+            element.style.backgroundColor = 'green';
     }
-        if (element.style.left === (event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
-            element.style.color = 'blue';
+        if ((event.pageX < (window.innerHeight / 2)) && (element.style.top === event.pageY > (window.innerWidth / 2) < window.innerWidth)) {
+            element.style.backgroundColor = 'blue';
         }
     }
 </script>
