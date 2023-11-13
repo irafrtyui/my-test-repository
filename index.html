@@ -4,8 +4,7 @@
 </style>
 <body>
 <h1 class="x" style="height: 30px"> </h1>
-<button id="AC" onclick="AC()">AC</button>
-<button id="DEL" onclick="">DEL</button>
+<button style="width: 75px" id="AC" onclick="AC()">AC</button>
 <button id="division" onclick="Operation('/')">/</button>
 <br/>
 <br/>
@@ -41,14 +40,13 @@ function showNumber(n) {
         document.querySelector('h1').innerText += n;
 }
 
-function Operation (Op){
+function Operation (Op) {
     readout = document.querySelector('.x');
     if (Op !== "=") {
         current = parseInt(readout.innerText);
         PendingOp = Op;
         readout.innerText = '';
-    }
-    else {
+    } else {
         if ('+' === PendingOp) {
             current += parseInt(readout.innerText);
         } else if ('-' === PendingOp) {
@@ -57,19 +55,18 @@ function Operation (Op){
             current *= parseInt(readout.innerText);
         } else if ('/' === PendingOp) {
             current /= parseInt(readout.innerText);
-        } else if (parseInt(readout.innerText) / 0) {
-                alert('division by 0 is not allowed');
-            } else {
-                current = parseInt(readout.innerText);
-            }
-        readout.innerText = current;
+        } else {
+            current = parseInt(readout.innerText);
         }
+        readout.innerText = current;
     }
-function AC () {
-    readout = document.querySelector('.x');
-    readout.innerText = '';
 }
 
+    function AC() {
+        readout = document.querySelector('.x');
+        readout.innerText = '';
+
+}
 </script>
 </body>
 </html>
