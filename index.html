@@ -54,7 +54,11 @@ function Operation (Op) {
         } else if ('*' === PendingOp) {
             current *= parseInt(readout.innerText);
         } else if ('/' === PendingOp) {
-            current /= parseInt(readout.innerText);
+            if (current === 0 || parseInt(readout.innerText) === 0) {
+                alert('division by zero is prohibited');
+            } else {
+                current /= parseInt(readout.innerText);
+            }
         } else {
             current = parseInt(readout.innerText);
         }
