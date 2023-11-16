@@ -1,0 +1,83 @@
+<html>
+<style>
+
+</style>
+<body>
+<h1 class="x" style="height: 30px"> </h1>
+<button style="width: 75px" id="AC" onclick="AC()">AC</button>
+<button id="division" onclick="Operation('/')">/</button>
+<br/>
+<br/>
+<button onclick="showNumber(1)">1</button>
+<button onclick="showNumber(2)">2</button>
+<button onclick="showNumber(3)">3</button>
+<button id="multiplication" onclick="Operation('*')">*</button>
+<br/>
+<br/>
+<button onclick="showNumber(4)">4</button>
+<button onclick="showNumber(5)">5</button>
+<button onclick="showNumber(6)">6</button>
+<button id="plus" onclick="Operation('+')">+</button>
+<br/>
+<br/>
+<button onclick="showNumber(7)">7</button>
+<button onclick="showNumber(8)">8</button>
+<button onclick="showNumber(9)">9</button>
+<button id="deduction" onclick="Operation('-')">-</button>
+<br/>
+<br/>
+<button id="point" onclick="showNumber('.')">.</button>
+<button  onclick="showNumber(0)">0</button>
+<button id="result" onclick="Operation('=')">=</button>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+
+    current = 0;
+    PendingOp = '';
+
+    function showNumber(n) {
+        if (n === '.' && $('h1').text().indexOf('.') > -1) {
+            return;
+        }
+       n = $('h1').text() + n;
+        $('h1').text(n);
+    }
+
+    function Operation (Op) {
+        readout = $('h1');
+        a = parseInt(readout.text());
+
+        if (Op !== "=") {
+            current = a;
+            PendingOp = Op;
+            readout.text('');
+        } else {
+            if ('+' === PendingOp) {
+                current += a;
+        }
+            else if ('-' === PendingOp) {
+                current -= a;
+            } else if ('*' === PendingOp) {
+                current *= a;
+            } else if ('/' === PendingOp) {
+                if (current === 0 || a === 0) {
+                    alert('division by zero is prohibited');
+                } else {
+                    current /= a;
+                }
+            } else {
+                current = a;
+            }
+            readout.text(current);
+        }
+    }
+
+    function AC() {
+        readout = $('h1');
+        readout.text('');
+    }
+
+</script>
+</body>
+</html>
