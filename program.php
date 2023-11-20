@@ -115,6 +115,19 @@ $pro = array_splice($prod, $from, $NotesOnPage);
         <input type="text" name="keywords" value="" placeholder="ex. milk">
     </label>
     <button type="submit">SEARCH</button>
+    <script src="jquery-3.7.1.min.js"></script>
+<script>
+    $('input').on('input', function() {
+        $.ajax({
+            url:'ajax.html?keywords=' + $(this).val(),
+            success: function(response) {
+    $('input').html(response);
+            }
+        });
+    })
+
+
+</script>
     <a href="create1.php">Create a new record</a>
     <br/>
     <br/>
