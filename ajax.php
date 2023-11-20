@@ -26,5 +26,6 @@ foreach ($result as $item){
             <td><?php echo $v->GetVeganAndProperty()?></td>
             <td><a href="/cart.php?products=<?php echo $v ?>" <b>Add</b></a></td>
         </tr>
-
     <?php endforeach; ?>
+    <table/>
+

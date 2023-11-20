@@ -116,24 +116,14 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     </label>
     <button type="submit">SEARCH</button>
     <script src="jquery-3.7.1.min.js"></script>
-<script>
-    $('input').on('input', function() {
-        $.ajax({
-            url:'ajax.html?keywords=' + $(this).val(),
-            success: function(response) {
-    $('input').html(response);
-            }
-        });
-    })
 
-
-</script>
     <a href="create1.php">Create a new record</a>
     <br/>
     <br/>
     <a href="cart1.php"><b>View Cart</b></a>
 
 </form>
+<div id="content">
 <table width="500px" border="1" cellpadding="5">
     <tr>
         <td><b></b></td><td><b>Name</b></td><td><b>Price</b></td><td><b>Weight</b></td><td><b>Vegan|Property</b></td><td><b>Add to cart</b></td>
@@ -161,7 +151,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
         <td colspan="6">Total price = <?php echo sum($prod);?></td>
     </tr>
 </table>
-
+<div/>
 <?php
 $sq = 'SELECT COUNT(*) FROM product';
 $st = $pdo->prepare($sq);
@@ -173,3 +163,15 @@ for($k = 1; $k <= $NotesOnPage; $k++){
     echo "<a href=\"?page=$k\">$k </a>";
 }
 ?>
+    <script>
+        $('input').on('input', function() {
+            $.ajax({
+                url:'ajax.php?keywords=' + $(this).val(),
+                success: function(response) {
+                    $('#content').html(response);
+
+                }
+
+            });
+        })
+    </script>
