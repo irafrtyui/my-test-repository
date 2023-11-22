@@ -15,7 +15,7 @@ include 'autoload.php';
 if (array_key_exists('login', $_POST) && array_key_exists('password', $_POST)){
     $sql = 'SELECT * FROM user ';
     $sql = $sql . ' WHERE login = "' . $_POST['login'] . '"';
-    $sql = $sql . ' AND password = "' . $_POST['password'] . '"';
+    $sql = $sql . ' AND password =  "' . MD5($_POST['password']) . '"';
     $_SESSION['access'] = 'ОК!';
 
     $user = $pdo->query($sql);

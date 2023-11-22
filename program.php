@@ -123,7 +123,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     <a href="cart1.php"><b>View Cart</b></a>
 
 </form>
-<div id="content">
+<div  id="content">
 <table width="500px" border="1" cellpadding="5">
     <tr>
         <td><b></b></td><td><b>Name</b></td><td><b>Price</b></td><td><b>Weight</b></td><td><b>Vegan|Property</b></td><td><b>Add to cart</b></td>
@@ -150,7 +150,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
     <tr>
         <td colspan="6">Total price = <?php echo sum($prod);?></td>
     </tr>
-</table>
+<table/>
 <div/>
 <?php
 $sq = 'SELECT COUNT(*) FROM product';
