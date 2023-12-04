@@ -9,7 +9,7 @@ if ((count($_POST) > 0) && (count($_FILES) > 0)) {
     move_uploaded_file($_FILES['image']['tmp_name'], 'cards/' . $_FILES['image']['name']);
 
     $sql = sprintf("INSERT INTO product (`image`, `name`, `price`, `weight`, `vegan`, `property`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');",
-        $_FILES['image']['name'], $_POST['name'], $_POST['price'], $_POST['weight'], $_POST['vegan'], $_POST['property']);
+        htmlspecialchars($_FILES['image']['name']), htmlspecialchars($_POST['name']), htmlspecialchars($_POST['price']), htmlspecialchars($_POST['weight']), htmlspecialchars($_POST['vegan']), htmlspecialchars($_POST['property']));
     $pdo->query($sql);
     // это он просто не видит переменную из файла, но фактически оно должно работать
     header('Location: /program.php');
@@ -88,6 +88,5 @@ if ((count($_POST) > 0) && (count($_FILES) > 0)) {
     <input type="file" name="image" accept="image/*" />
     <br/>
     <br/>
-    <button type="submit">SAVE</button>
-
-</form>
+    <a href="/post.php"><button type="submit">SAVE</button></a>
+   </form>
