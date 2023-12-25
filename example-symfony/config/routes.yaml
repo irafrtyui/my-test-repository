@@ -1,0 +1,40 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+product_show:
+    path: /product/show/{id}/{page}
+    controller: App\Controller\ProductController::show
+    requirements:
+        id: \d+
+        page: \d+
+    defaults:
+        page: 1
+
+product_sort:
+    path: /product/sort/{id}
+    controller: App\Controller\ProductController::sort
+    requirements:
+        id: \d+
+
+product_add:
+    path: /product/add
+    controller: App\Controller\ProductController::add
+    methods: POST|FILES
+
+product_search:
+    path: /product/search/{keywords}
+    controller: App\Controller\ProductController::search
+    requirements:
+        keywords: \w+
+    methods: GET
+
+    product_viewing:
+        path: /product/viewing/{id}
+        controller: App\Controller\ProductController::viewing
+        requirements:
+            id: \d+
+
+
