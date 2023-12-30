@@ -13,14 +13,19 @@
 <?php
 include 'autoload.php';
 if (array_key_exists('login', $_POST) && array_key_exists('password', $_POST)){
-    $sql = 'SELECT * FROM user ';
-    $sql = $sql . ' WHERE login = "' . $_POST['login'] . '"';
-    $sql = $sql . ' AND password =  "' . MD5($_POST['password']) . '"';
-    $_SESSION['access'] = 'ОК!';
-
-    $user = $pdo->query($sql);
+    $sql = 'SELECT * FROM user WHERE login = :login AND password = :password';
+   // $sql = $sql . ' WHERE login = "' . addslashes($_POST['login']) . '"';
+  //  $sql = $sql . ' AND password =  "' . MD5($_POST['password']) . '"';
+$stm = $pdo->prepare($sql);
+    $stm->bindValue(':login', $_POST['login']);
+    $stm->bindValue(':password', md5($_POST['password']));
+    $stm->execute();
+    $user = $stm->fetch();
     foreach ($user as $item){
         $_SESSION['user'] = $item;
+    }
+    if (array_key_exists('user', $_SESSION)) {
+        $_SESSION['access'] = 'ОК!';
     }
 
 

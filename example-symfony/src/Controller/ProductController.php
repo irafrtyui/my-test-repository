@@ -2,35 +2,36 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProductController
+class ProductController extends AbstractController
 {
     public function show($id, $page): Response
     {
-        return new Response('show products' . $id . $page);
+        return $this->render('Product/show.html.twig');
     }
 
     public function sort($id): Response
     {
-        return new Response('Sort Products' . $id);
+        return $this->render('Product/sort.html.twig');
     }
 
     public function add(): Response
     {
 
-    return new Response('Add');
+        return $this->render('Product/add.html.twig');
     }
 
     public function search($keywords): Response
     {
-        return new Response('Search Product' . $keywords);
+        return $this->render('Product/search.html.twig');
     }
 
     public function viewing($id): Response
     {
-        return new Response('Viewing Product' . $id);
+        return $this->render('Product/viewing.html.twig');
     }
 
 
