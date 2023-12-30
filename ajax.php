@@ -3,7 +3,7 @@ include 'autoload.php';
 $sql = 'SELECT * FROM product ';
 if (array_key_exists('keywords', $_GET) && strlen($_GET['keywords']) > 0) {
     $q = $_GET['keywords'];
-    $sql = $sql . 'WHERE name = "' . $q . '"';
+    $sql = $sql . 'WHERE name = "' . addslashes($q) . '"';
     }
 
 $result = $pdo->query($sql);

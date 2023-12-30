@@ -21,8 +21,8 @@ $sql = 'SELECT * FROM product ';
  * но результат к этому моменту уже получен, поэтому все что ты там конкатенировала уже ни на что не влияет
  */
 if (array_key_exists('keywords', $_GET) && strlen($_GET['keywords']) > 0) {
-    $q = $_GET['keywords'];
-    $sql = $sql . 'WHERE name = "' . $q . '"';
+    $q = addslashes($_GET['keywords']);
+    $sql = $sql . 'WHERE name = "' . addslashes($q) . '"';
 }
 
 $sql .= ' ORDER BY price ';
@@ -112,7 +112,7 @@ $pro = array_splice($prod, $from, $NotesOnPage);
 <body>
 <form method="get">
     <label> Search:
-        <input type="text" name="keywords" value="" placeholder="ex. milk">
+        <input type="text" name="keywords" value="<?php echo htmlspecialchars($_GET['keywords']) ?? '' ?>" placeholder="ex. milk">
     </label>
     <button type="submit">SEARCH</button>
     <script src="jquery-3.7.1.min.js"></script>

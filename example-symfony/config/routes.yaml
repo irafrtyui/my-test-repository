@@ -31,10 +31,10 @@ product_search:
         keywords: \w+
     methods: GET
 
-    product_viewing:
-        path: /product/viewing/{id}
-        controller: App\Controller\ProductController::viewing
-        requirements:
-            id: \d+
+product_viewing:
+    path: /product/viewing/{id}
+    controller: App\Controller\ProductController::viewing
+    requirements:
+        id: \d+
 
 
