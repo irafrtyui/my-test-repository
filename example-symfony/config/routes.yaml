@@ -12,23 +12,24 @@ product_show:
         page: \d+
     defaults:
         page: 1
+        id: 1
 
 product_sort:
     path: /product/sort/{id}
     controller: App\Controller\ProductController::sort
     requirements:
         id: \d+
+    defaults:
+        id: 1
 
 product_add:
     path: /product/add
     controller: App\Controller\ProductController::add
-    methods: POST|FILES
+
 
 product_search:
-    path: /product/search/{keywords}
+    path: /product/search
     controller: App\Controller\ProductController::search
-    requirements:
-        keywords: \w+
     methods: GET
 
 product_viewing:
@@ -36,5 +37,7 @@ product_viewing:
     controller: App\Controller\ProductController::viewing
     requirements:
         id: \d+
+    defaults:
+        id: 1
 
 

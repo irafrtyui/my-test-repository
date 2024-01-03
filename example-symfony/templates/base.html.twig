@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>
+
+            {% block title %}
+                Welcome!
+            {% endblock %}
+        </title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+            {{ ux_controller_link_tags() }}
+        {% endblock %}
+
+        {% block javascripts %}
+{% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+
+    <div class="logo-img">
+        <img src="{{ asset('img/logo.jpg') }}" alt="картинка" height="100" width="100"></div>
+    <div class="layout">
+    <hr/>
+                    <span class="name_of_shop">VEGAN STORE.</span>
+
+    <style>
+        .logo-img{
+            text-align:center;
+        }
+        .name_of_shop{
+            font-weight: bold;
+            color: #1c7430;
+            font-size: xx-large;
+        }
+        .layout{
+            background-color: #99cb84;
+        }
+    </style>
+
+    <hr/>
+    </div>
+    <a href="{{ path('product_add') }}">Product add</a>
+    </br>
+    <a href="{{ path('product_show') }}">Product show</a>
+    </br>
+    <a href="{{ path('product_viewing') }}">Product viewing</a>
+    </br>
+    <a href="{{ path('product_search') }}">Product search</a>
+    </br>
+    <a href="{{ path('product_sort') }}">Product sort</a>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

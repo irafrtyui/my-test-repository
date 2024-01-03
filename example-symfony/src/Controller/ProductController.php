@@ -8,12 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends AbstractController
 {
-    public function show($id, $page): Response
+    public function show(): Response
     {
         return $this->render('Product/show.html.twig');
     }
 
-    public function sort($id): Response
+    public function sort(): Response
     {
         return $this->render('Product/sort.html.twig');
     }
@@ -24,12 +24,12 @@ class ProductController extends AbstractController
         return $this->render('Product/add.html.twig');
     }
 
-    public function search($keywords): Response
+    public function search(): Response
     {
         return $this->render('Product/search.html.twig');
     }
 
-    public function viewing($id): Response
+    public function viewing(): Response
     {
         return $this->render('Product/viewing.html.twig');
     }
