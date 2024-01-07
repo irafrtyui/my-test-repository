@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+
+    
+<!-- Mirrored from uigator.com/bootstrap5/boland-v2.1/checkout-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Dec 2023 14:11:28 GMT -->
+<head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!--Nice select-->
+         <link rel="stylesheet" href="assets/vendor/node_modules/css/nice-select.css">
+        
+
+
+        <!--Font awesome-->
+        <link href="assets/fonts/font-awesome-5-free/css/all.min.css" rel="stylesheet">
+
+        <!--Goole fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+        <!-- Bootstrap + Vendor + Theme CSS -->
+        <link href="assets/css/style.min.css" id="style-switch" rel="stylesheet">
+        <title>Boland shop 2.0</title>
+    </head>
+
+    <body>
+           <!--pre-loader-->
+           <div id="preloader" class="site-preloader">
+                   <div class="d-flex align-items-center">
+                        <div class="spinner-border" role="status"></div><span class="d-block ms-3 text-muted">Loading...</span>
+                   </div>
+           </div>
+           <!--pre-loader-->
+           <!--back to top-->
+           <a href="#" class="toTop btn btn-secondary me-3 mb-3 p-0 flex-center size-40 rounded-3 position-fixed end-0 bottom-0 z-index-fixed"><i
+                   class="fas fa-chevron-up small"></i></a>
+           <!--back to top end-->
+
+         <!--===========================start Header===========================-->
+
+         <!-- Static navbar -->
+         <nav class="navbar py-lg-2 navbar-light navbar-center-logo navbar-expand-lg header-sticky">
+             <div class="container d-flex">
+                 <a class="navbar-brand" href="index-2.html">
+                     <img src="assets/img/logo.svg" class="logo-light" alt="">
+                     <img src="assets/img/logo-white.svg" class="logo-dark" alt="">
+                 </a>
+                 <div class="d-flex flex-row order-lg-last align-items-center">
+                     <button type="button" class="navbar-toggler order-last" data-bs-toggle="collapse" data-bs-target="#navbar"
+                         aria-expanded="false" aria-controls="navbar">
+                         <span class="icon-bar"></span>
+                     </button>
+                     <ul class="navbar-nav me-2 me-lg-0 d-flex flex-row align-items-center">
+                        <li class="cart-nav nav-item py-lg-3">
+                            <a href="login.html" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
+                                <svg viewBox="0 0 21 21" height="21" width="21">
+                                    <path d="M16.2099 6.55345C16.2906 9.70291 13.7989 12.324 10.6445 12.4078C7.49013 12.4916 4.86754 10.0064 4.78681 6.85689C4.70607 3.70744 7.19776 1.08637 10.3522 1.00258C13.5065 0.918785 16.1291 3.404 16.2099 6.55345Z" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+                                    <path d="M19.5 19.9997C19.5 19.9997 15.4706 15.668 10.5 15.668C5.52944 15.668 1.5 19.9997 1.5 19.9997" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+                                </svg>
+                            </a>
+                        </li>
+                         <li class="cart-nav nav-item py-lg-3 mx-2 mx-lg-3"><a href="javascript:void(0)"
+                                 data-bs-toggle="offcanvas" data-bs-target="#cartNavmenu"
+                                 class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
+                                 <svg viewBox="0 0 21 18" width="21" height="18">
+                                     <path stroke="currentColor" stroke-linejoin="bevel" stroke-width="1.8" fill="none" d="M16.285 16.824H3.73L1 5.997h18.016l-2.73 10.827z" fill="currentColor"></path>
+                                     <path
+                                         d="M6.39 1.824v-.9l-.9.9h.9zm7.233 0h.9l-.9-.9v.9zm-7.232.9h7.232v-1.8H6.39v1.8zm6.332-.9V4.25h1.8V1.824h-1.8zM7.29 4.25V1.824h-1.8V4.25h1.8z"
+                                         fill="currentColor" stroke-width=".1">
+
+                                     </path>
+                                 </svg>
+                                 <span
+                                     class="badge bg-primary rounded-pill p-0 flex-center position-absolute start-100 top-0 translate-middle size-25">3</span></a>
+                         </li>
+                         <li class="dropdown search-dropdown nav-item py-lg-3"><a href="javascript:void(0)"
+                                 class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40" data-bs-toggle="dropdown"
+                                 data-bs-auto-close="outside">
+                                 <svg viewBox="0 0 21 21" width="21" height="21">
+                                    <ellipse stroke-width="2" fill="none" stroke="currentColor" cx="8.91718" cy="8.9167" rx="7.91718" ry="7.9167"></ellipse>
+                                    <path stroke-width="2" fill="none" stroke="currentColor" d="M16.5164 16.5176L19.9999 20.0009"></path>
+                                </svg>
+                             </a>
+                             <ul class="dropdown-menu position-absolute dropdown-menu-lg-end dropdown-menu-search p-4">
+                                 <li class="pb-3 mb-3 border-bottom">
+                                     <div class="position-relative">
+                                         <form>
+                                             <input type="text" class="form-control form-control-lg pe-5 ps-3"
+                                                 placeholder="Search here...">
+                                             <button type="submit"
+                                                 class="btn btn-outline-light border-0 text-muted me-2 size-30 p-0 flex-center position-absolute end-0 top-50 translate-middle-y">
+                                                 <svg viewBox="0 0 21 21" width="21" height="21">
+                                                    <ellipse stroke-width="2" fill="none" stroke="currentColor" cx="8.91718" cy="8.9167" rx="7.91718" ry="7.9167"></ellipse>
+                                                    <path stroke-width="2" fill="none" stroke="currentColor" d="M16.5164 16.5176L19.9999 20.0009"></path>
+                                                </svg>
+                                                </button>
+                                         </form>
+                                     </div>
+                                 </li>
+                                 <li>
+                                     <h6 class="mb-3">Quick links</h6>
+                                     <div class="d-flex align-items-center flex-wrap">
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Bags</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Bottles</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Clock</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Lamp</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Chairs</a>
+                                     </div>
+                                 </li>
+                             </ul>
+                         </li>
+                         <li class="nav-item ms-2">
+                            <label class="dark-mode-checkbox d-flex align-items-center nav-link p-0" for="ChangeTheme">
+                                <input type="checkbox" id="ChangeTheme"> 
+                                <span class="slide">
+                                    <i class="fas fa-moon"></i>
+                                    <i class="fas fa-sun"></i>
+                                </span> 
+                                </label>
+                         </li>
+                     </ul>
+                 </div>
+
+                 <div id="navbar" class="navbar-collapse collapse">
+
+                     <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+                         <li class="dropdown py-lg-3 me-lg-4 nav-item">
+                             <a href="#" class="dropdown-toggle nav-link  "
+                                 data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home </a>
+                             <ul class="dropdown-menu">
+                                 <li><a class="dropdown-item" href="index-2.html">V1 - Default</a></li>
+                                 <li><a class="dropdown-item" href="index-creative.html">V2 - Creative</a></li>
+                             </ul>
+                         </li>
+
+                         <li class="dropdown py-lg-3 me-lg-4 nav-item">
+                             <a href="#" class="dropdown-toggle nav-link  "
+                                 data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                             <ul class="dropdown-menu">
+                                 <li><a class="dropdown-item" href="page-empty.html">Empty page</a></li>
+                                 <li><a class="dropdown-item" href="about.html">About us</a></li>
+                                 <li><a class="dropdown-item" href="contact.html">Contact </a></li>
+                                 <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+                                 <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                 <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                 <li><a class="dropdown-item" href="help-center.html">Help center</a></li>
+                             </ul>
+                         </li>
+                         <!--mega menu-->
+                         <li class="position-static py-lg-3 me-lg-4 nav-item">
+                             <a href="#" class="dropdown-toggle nav-link  active"
+                                 data-bs-toggle="dropdown">Shop</a>
+                             <div class="dropdown-menu w-100">
+                                 <div class="container">
+                                     <div class="row">
+
+                                         <div class="col-md-4 mb-3 mb-md-0">
+                                             <h6 class="dropdown-header">Category View</h6>
+                                             <div class="mega-menu-list list-unstyled nav">
+                                                 <a class="dropdown-item" href="cat-grid-2col.html">Grid 2
+                                                     columns</a>
+                                                 <a class="dropdown-item" href="cat-grid-3col.html">Grid 3
+                                                     columns</a>
+                                                 <a class="dropdown-item" href="cat-grid-4col.html">Grid 4
+                                                     columns</a>
+                                                 <a class="dropdown-item" href="cat-grid-masonry.html">Grid
+                                                     Masonry</a>
+                                                 <a class="dropdown-item" href="cat-list-left-sidebar.html">Left
+                                                     sidebar (List)</a>
+                                                 <a class="dropdown-item" href="cat-list-right-sidebar.html">Right Sidebar
+                                                     (List)</a>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-4 mb-3 mb-md-0">
+                                             <h6 class="dropdown-header">Shop Pages </h6>
+                                             <div class="mega-menu-list list-unstyled nav">
+                                                 <a class="dropdown-item" href="product-detail-1.html">Product Detail 1</a>
+
+                                                 <a class="dropdown-item" href="cart.html">Cart</a>
+                                                 <a class="dropdown-item" href="cart-empty.html">Cart empty</a>
+                                                 <a class="dropdown-item" href="checkout-details.html">Checkout</a>
+                                                 <a class="dropdown-item" href="wishlist.html">Wishlist</a>
+                                                 <a class="dropdown-item" href="order-track.html">Order
+                                                     Tracking</a>
+                                             </div>
+
+                                         </div>
+                                         <div class="col-md-4">
+                                             <h6 class="dropdown-header">Elements</h6>
+                                             <div class="mega-menu-list list-unstyled nav">
+                                                 <a class="dropdown-item" href="element-alerts.html">Alerts</a>
+                                                 <a class="dropdown-item" href="element-buttons.html">Buttons</a>
+                                                 <a class="dropdown-item" href="element-cards.html">Cards</a>
+                                                 <a class="dropdown-item" href="element-dropdowns.html">Dropdowns</a>
+                                                 <a class="dropdown-item" href="element-forms.html">Form elements</a>
+                                                 <a class="dropdown-item" href="element-modals.html">Modals</a>
+                                                 <a class="dropdown-item" href="element-swiper-slider.html">Swiper slider</a>
+                                                 <a class="dropdown-item" href="element-tabs-accordion.html">Tabs &
+                                                     accordions</a>
+                                                 <a class="dropdown-item" href="element-tooltip-popovers.html">Tooltip &
+                                                     popovers</a>
+                                                 <a class="dropdown-item" href="element-typography.html">Typography</a>
+
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                 </div>
+                             </div>
+                         </li>
+                         <!--menu Features li end here-->
+                         <li class="nav-item py-lg-3"><a href="blog.html"
+                                 class="nav-link  ">Blog</a></li>
+
+                     </ul>
+                 </div>
+                 <!--/.nav-collapse -->
+             </div>
+             <!--/.container-fluid -->
+         </nav>
+
+          <!--cart menu Offcanvas-->
+          <div id="cartNavmenu" class="offcanvas offcanvas-end">
+             <div class="offcanvas-header border-bottom position-relative">
+
+                 <h4 class="mb-0">Your cart (3)</h4>
+                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+             </div>
+             <div class="offcanvas-body p-4 flex-grow-1">
+
+                 <!--Cart items list-->
+                 <ul class="list-unstyled cart-list mb-0">
+
+                     <!--Cart item-->
+                     <li class="d-flex mb-3 align-items-center">
+                         <div class="me-4 flex-shrink-0">
+                             <a href="#">
+                                 <img src="assets/img/products/thumb3.jpg" alt="" class="width-80 h-auto rounded-3">
+                             </a>
+                         </div>
+                         <div class="position-relative pe-5 flex-grow-1">
+                             <a href="#!"
+                             class="flex-center text-muted rounded-circle position-absolute end-0 top-50 translate-middle-y">
+                             <i class="fas fa-trash-alt"></i></a>
+                             <h6 class="mb-1"><a href="#">Dip-Dye Tote Bag</a></h6>
+                             <p class="mb-0"><span class="price text-muted small">$48.00</span> x 1</p>
+                         </div>
+                     </li>
+
+                     <!--Cart item-->
+                     <li class="d-flex mb-3 align-items-center">
+                         <div class="me-4 flex-shrink-0">
+                             <a href="#">
+                                 <img src="assets/img/products/thumb1.jpg" alt="" class="width-80 h-auto rounded-3">
+                             </a>
+                         </div>
+                         <div class="position-relative pe-5 flex-grow-1">
+                             <a href="#!"
+                                 class="flex-center text-muted rounded-circle position-absolute end-0 top-50 translate-middle-y">
+                                 <i class="fas fa-trash-alt"></i></a>
+                             <h6 class="mb-1"><a href="#">Nackless Jewelery</a></h6>
+                             <p class="mb-0"><span class="price text-muted small">$48.00</span> x 1</p>
+                         </div>
+                     </li>
+
+                     <!--Cart item-->
+                     <li class="d-flex mb-4 align-items-center">
+                         <div class="me-4 flex-shrink-0">
+                             <a href="#">
+                                 <img src="assets/img/products/thumb2.jpg" alt="" class="width-80 h-auto rounded-3">
+                             </a>
+                         </div>
+                         <div class="position-relative pe-5 flex-grow-1">
+                             <a href="#!"
+                                 class="flex-center text-muted rounded-circle position-absolute end-0 top-50 translate-middle-y">
+                                 <i class="fas fa-trash-alt"></i></a>
+                             <h6 class="mb-1"><a href="#">10-Unit System Chair</a></h6>
+                             <p class="mb-0"><span class="price text-muted small">$48.00</span> x 1</p>
+                         </div>
+                     </li>
+
+                     <!--Cart amount-->
+                     <li class="py-4 border-top border-bottom">
+                         <div class="d-flex pb-2 mb-2 border-bottom justify-content-between align-items-center">
+                             <small class="text-muted">Sub Total</small>
+                             <h6 class="mb-0">$144.00</h6>
+                         </div>
+                         <div class="d-flex pb-2 mb-2 border-bottom justify-content-between align-items-center">
+                             <small class="text-muted">Shipping charges</small>
+                             <h6 class="mb-0">$0.00</h6>
+                         </div>
+                         <div class="d-flex justify-content-between align-items-center">
+                             <span class="text-muted">Total</span>
+                             <h5 class="mb-0">$144.00</h5>
+                         </div>
+                     </li>
+                 </ul>
+             </div>
+
+             <!--Cart action-->
+             <div class="offcanvas-footer p-4">
+                 <div class="text-center d-grid">
+                     <a href="checkout-details.html" class="btn btn-secondary mb-2">Checkout</a>
+                     <a href="cart.html" class="btn btn-link">View Cart</a>
+                 </div>
+             </div>
+         </div>
+         <!--===========================End Header===========================-->
+
+
+            <!--page start-->
+            <main>
+                <section class="border-top pt-5 pt-lg-6">
+                    
+                <div class="container py-7">
+
+                    <!--Steps-->
+                    <ol class="checkout-steps px-4 py-3 rounded-3 border shadow-sm list-unstyled mb-5 mb-lg-7">
+                        <li class=""><a href="cart.html">Cart</a></li>
+                        <li class="divider"></li>
+                        <li class="step active"><a href="checkout-details.html" class="">Details</a></li>
+                        <li class="divider"></li>
+                        <li class="step step3"><a href="checkout-payments.html" class="disabled">Payment</a></li>
+                    </ol>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="mb-4">Select a delivery address</h4>
+                            <div id="address_collapse_group">
+                                <!--Default address-->
+                            <div class="form-check-group">
+                                <input class="form-check-group-input d-none" checked type="radio" name="address_options"
+                                    id="default_address" value="option1" checked>
+                                <label data-bs-toggle="collapse" data-bs-target="#collapse_d_address" class="form-check-group-label" for="default_address">
+                                    <strong>Adam Voges</strong><br>
+                                    <span>Apartment 24, Lorem Street, <br>302012, LA</span>
+                                </label>
+                                
+                            <!--Empty collapse-->
+                            <div id="collapse_d_address" class="collapse" data-bs-parent="#address_collapse_group"></div>
+                            </div>
+                            <!--Different address-->
+                            <div class="form-check-group">
+                                <input type="radio" class="form-check-group-input d-none" name="address_options" id="option1"
+                                autocomplete="off">
+                            <label class="form-check-group-label" data-bs-toggle="collapse"
+                                data-bs-target="#d_address" for="option1"><i class="fas fa-plus small me-2"></i><strong>Add new address</strong></label>
+                            
+                             <!--Different address collapse-->
+                             <div class="collapse" id="d_address" data-bs-parent="#address_collapse_group">
+                               <div class="p-3">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">First Name*</label>
+                                            <input type="text" class="form-control" placeholder="John">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Last Name*</label>
+                                            <input type="text" class="form-control" placeholder="Doe">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Country*</label>
+                                            <select class="form-nice-select wide">
+                                                <option>India</option>
+                                                <option>USA</option>
+                                                <option>UK</option>
+                                                <option>Australia</option>
+                                                <option>Japan</option>
+                                                <option>Columbia</option>
+                                                <option>Poland</option>
+                                            </select>
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Company Name</label>
+                                            <input type="text" class="form-control" placeholder="Lorem ipsum">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Full Address*</label>
+                                            <input type="text" class="form-control" placeholder="124, Lorem Street..">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">City / State*</label>
+                                            <input type="text" class="form-control" placeholder="Jaipur">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Zip/ Postal Code*</label>
+                                            <input type="text" class="form-control" placeholder="302012">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Email Address*</label>
+                                            <input type="text" class="form-control" placeholder="john@doe.com">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Phone*</label>
+                                            <input type="text" class="form-control" placeholder="123-345-3322">
+                                        </div>
+                                        <!--/mb-3-->
+                                    </div>
+                                </div>
+                               </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <!--Cart summary-->
+                            <h4>Cart Summary</h4>
+                            <div class="list-group mb-4">
+                                <div class="list-group-item">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span>Cart Subtotal</span>
+                                        <span>$1698.00</span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span>Shipping &amp; Handling</span>
+                                        <span>$0.00 <span class="text-success small">Free</span></span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span><strong>Total</strong></span>
+                                        <span><strong>$1698.00</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid">
+                                <a href="checkout-payments.html" class="btn btn-primary">Continue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+            </main>
+            <!--end page-->
+
+            <!--footer-->
+            <footer class="footer border-top">
+                <div class="container pt-7">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 mb-5">
+                            <h5 class="mb-4">About Store</h5>
+                            <p class="text-muted">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                                tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                            </p>
+                            <ul class="d-flex list-unstyled flex-wrap">
+                                <li><a href="#!" class="btn p-0 flex-center size-40 me-2 mb-2 btn-outline-secondary rounded-pill"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#!" class="btn p-0 flex-center size-40 me-2 mb-2 btn-outline-secondary rounded-pill"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#!" class="btn p-0 flex-center size-40 me-2 mb-2 btn-outline-secondary rounded-pill"><i class="fab fa-google-plus"></i></a></li>
+                                <li><a href="#!" class="btn p-0 flex-center size-40 me-2 mb-2 btn-outline-secondary rounded-pill"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#!" class="btn p-0 flex-center size-40 me-2 mb-2 btn-outline-secondary rounded-pill"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <!--/col-->
+                        <div class="col-lg-3 col-sm-6 col-xl-4 mb-5">
+                            <h5 class="mb-4">Latest News</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex mb-4 align-items-stretch">
+                                    <div class="me-3">
+                                        <a href="#">
+                                            <img src="assets/img/img-1.jpg" alt="" class="width-70 h-auto rounded-3">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h6 class="mb-1"><a href="#">Commonly used in the graphic</a></h6>
+                                        <span><a href="#" class="small text-muted">5 Comments</a></span>
+                                    </div>
+                                </li>
+                                <li class="d-flex mb-4 align-items-stretch">
+                                    <div class="me-3">
+                                        <a href="#">
+                                            <img src="assets/img/img-2.jpg" alt="" class="width-70 h-auto rounded-3">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h6 class="mb-1"><a href="#">Lorem ipsum is placeholder text commonly used in the graphic</a></h6>
+                                        <span><a href="#" class="small text-muted">5 Comments</a></span>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-stretch">
+                                    <div class="me-3">
+                                        <a href="#">
+                                            <img src="assets/img/img-3.jpg" alt="" class="width-70 h-auto rounded-3">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <h6 class="mb-1"><a href="#">
+                                            Lorem ipsum is placeholder text commonly used in the graphic
+                                        </a></h6>
+                                        <span><a href="#" class="small text-muted">5 Comments</a></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/col-->
+                        <div class="col-lg-3 col-sm-5 col-xl-2 mb-5">
+                            <h5 class="mb-4">Quick Links</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#">My Account</a></li>
+                                <li class="my-2"><a href="#">Orders</a></li>
+                                <li class="my-2"><a href="#">Offers</a></li>
+                                <li class="my-2"><a href="#">Track order</a></li>
+                                <li class="my-2"><a href="#">News</a></li>
+                                <li><a href="#">Terms & conditions</a></li>
+                            </ul>
+                        </div>
+                        <!--/col-->
+                        <div class="col-lg-3 col-sm-7 mb-5">
+                            <h5 class="mb-4">Newsletter</h5>
+                            <div class="newsletter-form mb-4">
+                                <form>
+                                    <input type="text" class="form-control mb-2" placeholder="Email ">
+                                    <button class="btn btn-primary d-block w-100" type="button">Subscribe
+                                         <i class="fa fa-angle-right ms-1 lh-1"></i>
+                                        </button>
+                                </form>
+                            </div>
+                            <small class="text-muted d-block">Call us:</small>
+                            <a class="lead" href="#1800-444-3333">1800 444-3333</a><br><br>
+                            <small class="text-muted d-block">Mail us:</small>
+                            <a class="lead" href="https://uigator.com/cdn-cgi/l/email-protection#a7d4d2d7d7c8d5d3e7c5c8cbc6c9c389c4c8ca"><span class="__cf_email__" data-cfemail="4a393f3a3a25383e0a2825262b242e64292527">[email&#160;protected]</span></a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-0 mb-5">
+                <div class="container pb-5 text-center">
+                    <span class="mb-3 d-block text-muted small">&copy; Copyright 2022-23. All Right Reserved.</span>
+        
+                    <!--:Payment options:-->
+                    <div class="d-flex gap-2 justify-content-center">
+                        <svg class="mr-10" width="46" height="31" viewBox="0 0 46 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.9" width="45.3659" height="30.2439" rx="3.78049" fill="white"></rect>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.6879 16.6999C28.6937 15.2588 27.5052 14.6364 26.5829 14.1533C25.999 13.8476 25.5218 13.5976 25.5218 13.2313C25.5218 12.9194 25.8242 12.5886 26.4669 12.5035C27.2318 12.4278 28.0029 12.5618 28.6974 12.891L29.0943 11.0008C28.4173 10.7469 27.7004 10.6157 26.9773 10.6133C24.7468 10.6133 23.1968 11.8041 23.1968 13.5054C23.1968 14.7624 24.3215 15.4618 25.1721 15.8776C26.0227 16.2935 26.3535 16.5865 26.344 16.9645C26.344 17.5505 25.6447 17.8151 24.9925 17.8246C24.1881 17.8349 23.3943 17.6397 22.6864 17.2575L22.28 19.1477C23.081 19.4604 23.9342 19.6176 24.794 19.6108C27.1663 19.6108 28.7257 18.4389 28.7352 16.6243L28.6879 16.6999ZM22.5521 10.7656L20.6618 19.508H18.3936L20.2838 10.7656H22.5521ZM32.0615 16.4339L33.2524 13.1543L33.9423 16.4339H32.0615ZM36.682 19.5353H34.5838L34.3098 18.2311H31.4649L31.0018 19.5353H28.6201L32.0131 11.4357C32.1695 11.0503 32.5423 10.7968 32.9582 10.793H34.8485L36.682 19.5353ZM15.7003 19.4794L19.3674 10.737H16.9101L14.5567 16.6819L13.6116 11.6255C13.528 11.1116 13.0831 10.7349 12.5625 10.737H8.71589L8.65918 10.9922C9.43072 11.1432 10.1801 11.3909 10.8897 11.7294C11.1919 11.8715 11.3967 12.1625 11.4284 12.495L13.2336 19.4794H15.7003Z" fill="#222222"></path>
+                  </svg>
+            
+                        <svg class="mr-10" width="46" height="31" viewBox="0 0 46 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.9" width="45.3659" height="30.2439" rx="3.78049" fill="white"></rect>
+                  <g opacity="0.01">
+                  <rect x="4.38672" y="3.02344" width="36.5857" height="24.1951" fill="#222222"></rect>
+                  </g>
+                  <rect x="17.8594" y="7.23828" width="9.64969" height="15.7646" fill="#F26122"></rect>
+                  <path d="M18.8952 15.1197C18.8793 12.0514 20.273 9.14563 22.6757 7.23738C18.5647 4.0044 12.6593 4.47386 9.11067 8.31577C5.56207 12.1577 5.56207 18.0817 9.11067 21.9236C12.6593 25.7655 18.5647 26.235 22.6757 23.002C20.273 21.0938 18.8793 18.188 18.8952 15.1197Z" fill="#EA1D25"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M37.9302 21.0076V21.3289H37.8735V21.0076H37.7412V20.9414H38.072V21.0076H37.9302ZM38.5763 20.9414V21.3289H38.5101V21.0359L38.4062 21.2911H38.3306L38.2171 21.0359V21.3289H38.151V20.9414H38.2455L38.3684 21.2155L38.4818 20.9414H38.5763Z" fill="#F69E1E"></path>
+                  <path d="M38.897 15.121C38.8945 18.9576 36.7032 22.4564 33.2526 24.1335C29.802 25.8106 25.6969 25.3718 22.6787 23.0033C27.0263 19.58 27.7792 13.2821 24.361 8.93043C23.871 8.30029 23.3061 7.73218 22.6787 7.23866C25.6969 4.87018 29.802 4.43141 33.2526 6.10846C36.7032 7.78551 38.8945 11.2844 38.897 15.121V15.121Z" fill="#F69E1E"></path>
+                  </svg>
+      
+            
+                       <svg class="mr-10" width="78" height="30" viewBox="0 0 78 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.9" width="78" height="30" rx="3.78049" fill="white"></rect>
+                  <path d="M55.7004 11.1992H52.3004C52.1004 11.1992 51.9004 11.3992 51.8004 11.5992L50.4004 20.3992C50.4004 20.5992 50.5004 20.6992 50.7004 20.6992H52.5004C52.7004 20.6992 52.8004 20.5992 52.8004 20.3992L53.2004 17.8992C53.2004 17.6992 53.4004 17.4992 53.7004 17.4992H54.8004C57.1004 17.4992 58.4004 16.3992 58.7004 14.1992C58.9004 13.2992 58.7004 12.4992 58.3004 11.9992C57.7004 11.4992 56.8004 11.1992 55.7004 11.1992ZM56.1004 14.4992C55.9004 15.6992 55.0004 15.6992 54.1004 15.6992H53.5004L53.9004 13.3992C53.9004 13.2992 54.0004 13.1992 54.2004 13.1992H54.4004C55.0004 13.1992 55.6004 13.1992 55.9004 13.5992C56.1004 13.6992 56.1004 13.9992 56.1004 14.4992Z" fill="#139AD6"></path>
+                  <path d="M31.2004 11.1992H27.8004C27.6004 11.1992 27.4004 11.3992 27.3004 11.5992L25.9004 20.3992C25.9004 20.5992 26.0004 20.6992 26.2004 20.6992H27.8004C28.0004 20.6992 28.2004 20.4992 28.3004 20.2992L28.7004 17.8992C28.7004 17.6992 28.9004 17.4992 29.2004 17.4992H30.3004C32.6004 17.4992 33.9004 16.3992 34.2004 14.1992C34.4004 13.2992 34.2004 12.4992 33.8004 11.9992C33.2004 11.4992 32.4004 11.1992 31.2004 11.1992ZM31.6004 14.4992C31.4004 15.6992 30.5004 15.6992 29.6004 15.6992H29.1004L29.5004 13.3992C29.5004 13.2992 29.6004 13.1992 29.8004 13.1992H30.0004C30.6004 13.1992 31.2004 13.1992 31.5004 13.5992C31.6004 13.6992 31.7004 13.9992 31.6004 14.4992Z" fill="#263B80"></path>
+                  <path d="M41.5 14.3992H39.9C39.8 14.3992 39.6 14.4992 39.6 14.5992L39.5 15.0992L39.4 14.8992C39 14.3992 38.3 14.1992 37.5 14.1992C35.7 14.1992 34.1 15.5992 33.8 17.4992C33.6 18.4992 33.9 19.3992 34.4 19.9992C34.9 20.5992 35.6 20.7992 36.5 20.7992C38 20.7992 38.8 19.8992 38.8 19.8992L38.7 20.3992C38.7 20.5992 38.8 20.6992 39 20.6992H40.5C40.7 20.6992 40.9 20.4992 41 20.2992L41.9 14.6992C41.8 14.5992 41.6 14.3992 41.5 14.3992ZM39.2 17.5992C39 18.4992 38.3 19.1992 37.3 19.1992C36.8 19.1992 36.4 18.9992 36.2 18.7992C36 18.4992 35.9 18.0992 35.9 17.5992C36 16.6992 36.8 15.9992 37.7 15.9992C38.2 15.9992 38.5 16.1992 38.8 16.3992C39.1 16.6992 39.2 17.1992 39.2 17.5992Z" fill="#263B80"></path>
+                  <path d="M65.9003 14.3992H64.3003C64.2003 14.3992 64.0003 14.4992 64.0003 14.5992L63.9003 15.0992L63.8003 14.8992C63.4003 14.3992 62.7003 14.1992 61.9003 14.1992C60.1003 14.1992 58.5003 15.5992 58.2003 17.4992C58.0003 18.4992 58.3003 19.3992 58.8003 19.9992C59.3003 20.5992 60.0003 20.7992 60.9003 20.7992C62.4003 20.7992 63.2003 19.8992 63.2003 19.8992L63.1003 20.3992C63.1003 20.5992 63.2003 20.6992 63.4003 20.6992H64.9003C65.1003 20.6992 65.3003 20.4992 65.4003 20.2992L66.3003 14.6992C66.2003 14.5992 66.1003 14.3992 65.9003 14.3992ZM63.6003 17.5992C63.4003 18.4992 62.7003 19.1992 61.7003 19.1992C61.2003 19.1992 60.8003 18.9992 60.6003 18.7992C60.4003 18.4992 60.3003 18.0992 60.3003 17.5992C60.4003 16.6992 61.2003 15.9992 62.1003 15.9992C62.6003 15.9992 62.9003 16.1992 63.2003 16.3992C63.6003 16.6992 63.7003 17.1992 63.6003 17.5992Z" fill="#139AD6"></path>
+                  <path d="M50.2 14.4004H48.5C48.3 14.4004 48.2 14.5004 48.1 14.6004L45.9 18.0004L44.9 14.8004C44.8 14.6004 44.7 14.5004 44.4 14.5004H42.8C42.6 14.5004 42.5 14.7004 42.5 14.9004L44.3 20.2004L42.6 22.6004C42.5 22.8004 42.6 23.1004 42.8 23.1004H44.4C44.6 23.1004 44.7 23.0004 44.8 22.9004L50.3 15.0004C50.6 14.7004 50.4 14.4004 50.2 14.4004Z" fill="#263B80"></path>
+                  <path d="M67.8004 11.5009L66.4004 20.5009C66.4004 20.7009 66.5004 20.8009 66.7004 20.8009H68.1004C68.3004 20.8009 68.5004 20.601 68.6004 20.401L70.0004 11.601C70.0004 11.401 69.9004 11.3009 69.7004 11.3009H68.1004C68.0004 11.2009 67.9004 11.3009 67.8004 11.5009Z" fill="#139AD6"></path>
+                  <path d="M18.5 8.2C17.8 7.4 16.5 7 14.7 7H9.7C9.4 7 9.1 7.3 9 7.6L7 20.7C7 21 7.2 21.2 7.4 21.2H10.5L11.3 16.3V16.5C11.4 16.2 11.7 15.9 12 15.9H13.5C16.4 15.9 18.6 14.7 19.3 11.4C19.3 11.3 19.3 11.2 19.3 11.1C19.2 11.1 19.2 11.1 19.3 11.1C19.4 9.8 19.2 9 18.5 8.2Z" fill="#263B80"></path>
+                  <path d="M19.2002 11.0996C19.2002 11.1996 19.2002 11.2996 19.2002 11.3996C18.5002 14.7996 16.3002 15.8996 13.4002 15.8996H11.9002C11.6002 15.8996 11.3002 16.1996 11.2002 16.4996L10.2002 22.5996C10.2002 22.7996 10.3002 22.9996 10.6002 22.9996H13.2002C13.5002 22.9996 13.8002 22.7996 13.8002 22.4996V22.3996L14.3002 19.2996V19.0996C14.3002 18.7996 14.6002 18.5996 14.9002 18.5996H15.3002C17.8002 18.5996 19.8002 17.5996 20.3002 14.5996C20.5002 13.3996 20.4002 12.2996 19.8002 11.5996C19.7002 11.3996 19.5002 11.1996 19.2002 11.0996Z" fill="#139AD6"></path>
+                  <path d="M18.4998 10.8C18.3998 10.8 18.2998 10.7 18.1998 10.7C18.0998 10.7 17.9998 10.7 17.8998 10.6C17.4998 10.5 17.0998 10.5 16.5998 10.5H12.6998C12.5998 10.5 12.4998 10.5 12.3998 10.6C12.1998 10.7 12.0998 10.9 12.0998 11.1L11.2998 16.3V16.5C11.3998 16.2 11.6998 15.9 11.9998 15.9H13.4998C16.3998 15.9 18.5998 14.7 19.2998 11.4C19.2998 11.3 19.2998 11.2 19.3998 11.1C19.1998 11 19.0998 10.9 18.8998 10.9C18.5998 10.8 18.5998 10.8 18.4998 10.8Z" fill="#232C65"></path>
+                  </svg>
+      
+            
+                        <svg width="83" height="30" viewBox="0 0 83 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect opacity="0.9" width="83" height="30" rx="3.78049" fill="white"></rect>
+                  <path d="M60.0887 11.7324L55.7671 20.6476H53.9766L55.5912 17.317L53.0547 11.7324H54.8931L56.5238 15.4733L58.3036 11.7324H60.0887Z" fill="black"></path>
+                  <path d="M43.6443 14.8978C43.6443 13.8747 42.8716 13.086 41.9231 13.086C40.9746 13.086 40.2019 13.848 40.2019 14.8978C40.2019 15.9369 40.9746 16.7096 41.9231 16.7096C42.8716 16.7096 43.6443 15.9209 43.6443 14.8978ZM38.6299 20.6476V11.7325H40.1859V12.5531C40.6548 11.9723 41.3529 11.6152 42.1842 11.6152C43.8948 11.6152 45.2376 13.022 45.2376 14.8818C45.2376 16.7416 43.8681 18.159 42.1469 18.159C41.3476 18.159 40.6921 17.8446 40.2339 17.3118V20.6423H38.6299V20.6476Z" fill="black"></path>
+                  <path d="M50.8536 14.8983C50.8536 13.8326 50.0809 13.0865 49.1324 13.0865C48.1838 13.0865 47.4112 13.8485 47.4112 14.8983C47.4112 15.9374 48.1838 16.7101 49.1324 16.7101C50.0809 16.7101 50.8536 15.9588 50.8536 14.8983ZM50.8642 18.0636V17.243C50.3953 17.8132 49.6972 18.1649 48.8659 18.1649C47.1287 18.1649 45.8125 16.7741 45.8125 14.8983C45.8125 13.0386 47.182 11.6211 48.9032 11.6211C49.7132 11.6211 50.3953 11.9781 50.8642 12.5323V11.733H52.4203V18.0636H50.8642Z" fill="black"></path>
+                  <path d="M35.8211 12.3506C35.8211 12.3506 36.2154 11.6152 37.1906 11.6152C37.6063 11.6152 37.8727 11.7591 37.8727 11.7591V13.3737C37.8727 13.3737 37.2865 13.0114 36.7483 13.086C36.2101 13.1606 35.8691 13.6508 35.8691 14.3116V18.0631H34.2598V11.7325H35.8158V12.3506H35.8211Z" fill="black"></path>
+                  <path d="M72.1743 11.3749L70.3305 10.3198L68.4601 9.24871C67.2238 8.53997 65.6785 9.42988 65.6785 10.858V11.0978C65.6785 11.231 65.7477 11.3536 65.865 11.4175L66.7336 11.9131C66.9734 12.0517 67.2718 11.8758 67.2718 11.5987V11.0285C67.2718 10.7461 67.5755 10.5703 67.8207 10.7088L69.5259 11.6893L71.2258 12.6645C71.4709 12.803 71.4709 13.1601 71.2258 13.2986L69.5259 14.2738L67.8207 15.2543C67.5755 15.3928 67.2718 15.217 67.2718 14.9346V14.6521C67.2718 13.224 65.7264 12.3288 64.4901 13.0428L62.6197 14.1139L60.7759 15.169C59.5343 15.8831 59.5343 17.6789 60.7759 18.393L62.6197 19.4481L64.4901 20.5192C65.7264 21.2279 67.2718 20.338 67.2718 18.9099V18.6701C67.2718 18.5369 67.2025 18.4143 67.0853 18.3503L66.2167 17.8548C65.9769 17.7162 65.6785 17.8921 65.6785 18.1692V18.7394C65.6785 19.0218 65.3747 19.1976 65.1296 19.0591L63.4244 18.0786L61.7245 17.1034C61.4793 16.9648 61.4793 16.6078 61.7245 16.4693L63.4244 15.4941L65.1296 14.5136C65.3747 14.375 65.6785 14.5509 65.6785 14.8333V15.1157C65.6785 16.5439 67.2238 17.4391 68.4601 16.7251L70.3305 15.654L72.1743 14.5988C73.4159 13.8795 73.4159 12.089 72.1743 11.3749Z" fill="black"></path>
+                  <path d="M16.4905 15.7024C16.1495 17.1572 14.8972 18.159 13.2772 18.159C11.4068 18.159 10 16.7522 10 14.8925C10 13.0327 11.4281 11.6152 13.3039 11.6152C14.8865 11.6152 16.1228 12.6171 16.4799 14.0452H14.8332C14.5402 13.475 13.9593 13.0966 13.3145 13.0966C12.3767 13.0966 11.5933 13.8693 11.5933 14.8925C11.5933 15.9156 12.3767 16.6883 13.3145 16.6883C13.986 16.6883 14.5668 16.3099 14.8439 15.7024H16.4905Z" fill="black"></path>
+                  <path d="M17.2314 18.0581V9.12695H18.8248V18.0581H17.2314Z" fill="black"></path>
+                  <path d="M21.2231 15.314C21.335 16.2518 22.0065 16.7794 22.8538 16.7794C23.5252 16.7794 24.0421 16.465 24.3458 15.9588H25.9765C25.5981 17.3016 24.3938 18.1596 22.8111 18.1596C20.8981 18.1596 19.5605 16.8167 19.5605 14.909C19.5605 13.0013 20.978 11.6211 22.8484 11.6211C24.7348 11.6211 26.099 13.0119 26.099 14.909C26.099 15.0475 26.0884 15.1861 26.0617 15.314H21.2231V15.314ZM24.3991 14.3228C24.2872 13.5022 23.6158 13.0066 22.8324 13.0066C22.0491 13.0066 21.4043 13.4862 21.2391 14.3228H24.3991Z" fill="black"></path>
+                  <path d="M31.7896 18.0578V17.2371C31.3206 17.8073 30.6279 18.159 29.7913 18.159C28.0594 18.159 26.7432 16.7682 26.7432 14.8925C26.7432 13.0327 28.1073 11.6152 29.8286 11.6152C30.6385 11.6152 31.3206 11.9669 31.7896 12.5265V11.7271H33.3456V18.0525H31.7896V18.0578ZM31.7736 14.8925C31.7736 13.832 31.0009 13.0807 30.0524 13.0807C29.1038 13.0807 28.3312 13.8374 28.3312 14.8925C28.3312 15.9316 29.1038 16.7043 30.0524 16.7043C31.0009 16.7043 31.7736 15.9582 31.7736 14.8925Z" fill="black"></path>
+                  </svg>
+      
+      
+                      </div>
+                </div>
+            </footer>
+            <!--/footer-->
+
+        <script data-cfasync="false" src="https://uigator.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/theme.bundle.js"></script>
+         <!--Nice select-->
+         <script src="assets/vendor/node_modules/js/jquery.min.js"></script>
+         <script src="assets/vendor/node_modules/js/jquery.nice-select.min.js"></script>
+         <script>
+             $(document).ready(function () {
+                 $('.form-nice-select').niceSelect();
+             });
+ 
+         </script>
+    </body>
+
+
+<!-- Mirrored from uigator.com/bootstrap5/boland-v2.1/checkout-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Dec 2023 14:11:28 GMT -->
+</html>

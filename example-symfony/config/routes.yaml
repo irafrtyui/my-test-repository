@@ -37,10 +37,19 @@ product_viewing:
     controller: App\Controller\ProductController::viewing
     requirements:
         id: \d+
-<<<<<<< HEAD
     defaults:
         id: 1
-=======
->>>>>>> origin/main
+
+product_login:
+    path: /product/login
+    controller: App\Controller\ProductController::login
+
+product_about:
+    path: /product/about
+    controller: App\Controller\ProductController::about
+
+product_cart:
+    path: /product/cart
+    controller: App\Controller\ProductController::cart
 
 

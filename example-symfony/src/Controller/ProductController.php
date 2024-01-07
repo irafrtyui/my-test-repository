@@ -34,7 +34,19 @@ class ProductController extends AbstractController
         return $this->render('Product/viewing.html.twig');
     }
 
+    public function login(): Response
+    {
+        return $this->render('Product/login.html.twig');
+    }
 
+    public function about(): Response
+    {
+        return $this->render('Product/about.html.twig');
+    }
 
+    public function cart(): Response
+    {
+        return $this->render('Product/cart.html.twig');
+    }
 
 }

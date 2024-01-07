@@ -1,47 +1,108 @@
-<html>
-<style>
-</style>
+<div class="top-bar navbar py-0 w-100 d-block border-bottom">
+    <div class="container d-block">
+        <div class="row align-items-center">
+            <div class="col-md-6 d-none d-md-block">
+                <span class="small text-muted">Free shipping worldwide on order above $150</span>
+            </div>
+            <div class="col-md-6 col-12">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container d-flex">
+    <a class="navbar-brand" href="index.html">
+        <img src="{{ asset('img/images.png') }}" class="logo-light" alt="">
+    </a>
+    <div class="d-flex flex-row order-lg-last align-items-center">
+        <button type="button" class="navbar-toggler order-last" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="true" aria-controls="navbar">
+            <span class="icon-bar"></span>
+        </button>
+        <ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
+            <li class="cart-nav nav-item py-lg-3">
 
-<body onmousemove="mouseMove(event)">
-<div id="a" style="width: 60px;height: 60px;background: red;position: absolute"
-        onmousedown="mouseDown()"
-        onmouseup="mouseUp()"
+            </li>
+
+            <li class="dropdown search-dropdown nav-item py-lg-3">
+                <a href="javascript:void(0)" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                    <svg viewBox="0 0 21 21" width="21" height="21">
+                        <ellipse stroke-width="2" fill="none" stroke="currentColor" cx="8.91718" cy="8.9167" rx="7.91718" ry="7.9167"></ellipse>
+                        <path stroke-width="2" fill="none" stroke="currentColor" d="M16.5164 16.5176L19.9999 20.0009"></path>
+                    </svg>
+                </a>
+                <ul class="dropdown-menu position-absolute dropdown-menu-lg-end dropdown-menu-search p-4">
+                    <li class="pb-3 mb-3 border-bottom">
+                        <div class="position-relative">
+                            <form>
+                                <input type="text" class="form-control form-control-lg pe-5 ps-3" placeholder="Search here...">
+                                <button type="submit" class="btn btn-outline-light border-0 text-muted me-2 size-30 p-0 flex-center position-absolute end-0 top-50 translate-middle-y">
+                                    <svg viewBox="0 0 21 21" width="21" height="21">
+                                        <ellipse stroke-width="2" fill="none" stroke="currentColor" cx="8.91718" cy="8.9167" rx="7.91718" ry="7.9167"></ellipse>
+                                        <path stroke-width="2" fill="none" stroke="currentColor" d="M16.5164 16.5176L19.9999 20.0009"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <h6 class="mb-3">Quick links</h6>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <a href="#!" class="badge border text-body me-2 mb-2">Trousers</a>
+                            <a href="#!" class="badge border text-body me-2 mb-2">Sweatshirts</a>
+                            <a href="#!" class="badge border text-body me-2 mb-2">Dresses</a>
+                            <a href="#!" class="badge border text-body me-2 mb-2">Sportswear</a>
+                            <a href="#!" class="badge border text-body me-2 mb-2">Shirts</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse show" style="">
+
+        <ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
+            <li class="dropdown py-lg-3 me-lg-4 nav-item">
+                <a href="#" class="dropdown-toggle nav-link  active" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ path('product_show') }}">All goods</a></li>
+                    <li><a class="dropdown-item" href="{{ path('product_add') }}">Add product</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown py-lg-3 me-lg-4 nav-item">
+                <a href="#" class="dropdown-toggle nav-link  " data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ path('product_about') }}">About us/Contacts</a></li>
+                    <li><a class="dropdown-item" href="{{ path('product_login') }}">Login</a></li>
+                </ul>
+            </li>
+            <!--mega menu-->
+            <li class="position-static dropdown py-lg-3 me-lg-4 nav-item">
+                <a href="#" class="dropdown-toggle nav-link  " data-bs-toggle="dropdown">Shop</a>
+                <div class="dropdown-menu w-100">
+                    <div class="container">
+                        <div class="row">
 
 
-></div>
-</body>
-<script>
-    element = document.querySelector('#a');
-    moving = false;
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <h6 class="dropdown-header">Shop Pages </h6>
+                                <div class="mega-menu-list list-unstyled nav">
+                                    <a class="dropdown-item" href="{{ path('product_cart') }}">Cart</a>
+                                </div>
 
-    function mouseDown(){
-        moving = true;
-    }
+                            </div>
 
-    function mouseUp(){
-        moving = false;
-    }
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--menu Features li end here-->
+            <li class="nav-item py-lg-3"><a href="blog.html" class="nav-link  ">Blog</a></li>
 
-    function mouseMove(event) {
-    halfWidth = window.innerWidth / 2;
-    halfHeight = window.innerHeight / 2;
-        if (moving) {
-            element.style.top = event.pageY;
-            element.style.left = event.pageX;
+        </ul>
+    </div>
+    <!--/.nav-collapse -->
 
-        if ((event.pageX < halfWidth) && (event.pageY < halfHeight)) {
-            element.style.backgroundColor = 'red';
-        }
-        if ((event.pageX < halfWidth) && (event.pageY > halfHeight)) {
-            element.style.backgroundColor = 'yellow';
-        }
-        if ((event.pageX > halfWidth ) && (event.pageY > halfHeight)) {
-            element.style.backgroundColor = 'green';
-    }
-        if ((event.pageX > halfWidth) && (event.pageY < halfHeight)) {
-            element.style.backgroundColor = 'blue';
-        }
-    }
-    }
-</script>
-</html>
+    {% block body %}
+    {% endblock %}
+</div>

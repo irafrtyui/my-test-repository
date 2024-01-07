@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+    
+<!-- Mirrored from uigator.com/bootstrap5/boland-v2.1/page-empty.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Dec 2023 14:11:13 GMT -->
+<head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+
+
+        <!--Font awesome-->
+        <link href="assets/fonts/font-awesome-5-free/css/all.min.css" rel="stylesheet">
+
+        <!--Goole fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+        <!-- Bootstrap + Vendor + Theme CSS -->
+        <link href="assets/css/style.min.css" id="style-switch" rel="stylesheet">
+        <title>Boland shop 2.0</title>
+    </head>
+
+    <body>
+
+           <!--pre-loader-->
+           <div id="preloader" class="site-preloader">
+                   <div class="d-flex align-items-center">
+                        <div class="spinner-border" role="status"></div><span class="d-block ms-3 text-muted">Loading...</span>
+                   </div>
+           </div>
+           <!--pre-loader-->
+           <!--back to top-->
+           <a href="#" class="toTop btn btn-secondary me-3 mb-3 p-0 flex-center size-40 rounded-3 position-fixed end-0 bottom-0 z-index-fixed"><i
+                   class="fas fa-chevron-up small"></i></a>
+           <!--back to top end-->
+
+         <!--===========================start Header===========================-->
+
+         <!-- Static navbar -->
+         <nav class="navbar py-lg-2 navbar-light navbar-center-logo navbar-expand-lg header-sticky">
+             <div class="container d-flex">
+                 <a class="navbar-brand" href="index-2.html">
+                     <img src="assets/img/logo.svg" class="logo-light" alt="">
+                     <img src="assets/img/logo-white.svg" class="logo-dark" alt="">
+                 </a>
+                 <div class="d-flex flex-row order-lg-last align-items-center">
+                     <button type="button" class="navbar-toggler order-last" data-bs-toggle="collapse" data-bs-target="#navbar"
+                         aria-expanded="false" aria-controls="navbar">
+                         <span class="icon-bar"></span>
+                     </button>
+                     <ul class="navbar-nav me-2 me-lg-0 d-flex flex-row align-items-center">
+                        <li class="cart-nav nav-item py-lg-3">
+                            <a href="login.html" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
+                                <svg viewBox="0 0 21 21" height="21" width="21">
+                                    <path d="M16.2099 6.55345C16.2906 9.70291 13.7989 12.324 10.6445 12.4078C7.49013 12.4916 4.86754 10.0064 4.78681 6.85689C4.70607 3.70744 7.19776 1.08637 10.3522 1.00258C13.5065 0.918785 16.1291 3.404 16.2099 6.55345Z" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+                                    <path d="M19.5 19.9997C19.5 19.9997 15.4706 15.668 10.5 15.668C5.52944 15.668 1.5 19.9997 1.5 19.9997" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+                                </svg>
+                            </a>
+                        </li>
+                         <li class="cart-nav nav-item py-lg-3 mx-2 mx-lg-3"><a href="javascript:void(0)"
+                                 data-bs-toggle="offcanvas" data-bs-target="#cartNavmenu"
+                                 class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
+                                 <svg viewBox="0 0 21 18" width="21" height="18">
+                                     <path stroke="currentColor" stroke-linejoin="bevel" stroke-width="1.8" fill="none" d="M16.285 16.824H3.73L1 5.997h18.016l-2.73 10.827z" fill="currentColor"></path>
+                                     <path
+                                         d="M6.39 1.824v-.9l-.9.9h.9zm7.233 0h.9l-.9-.9v.9zm-7.232.9h7.232v-1.8H6.39v1.8zm6.332-.9V4.25h1.8V1.824h-1.8zM7.29 4.25V1.824h-1.8V4.25h1.8z"
+                                         fill="currentColor" stroke-width=".1">
+
+                                     </path>
+                                 </svg>
+                                 <span
+                                     class="badge bg-primary rounded-pill p-0 flex-center position-absolute start-100 top-0 translate-middle size-25">3</span></a>
+                         </li>
+                         <li class="dropdown search-dropdown nav-item py-lg-3"><a href="javascript:void(0)"
+                                 class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40" data-bs-toggle="dropdown"
+                                 data-bs-auto-close="outside">
+                                 <svg viewBox="0 0 21 21" width="21" height="21">
+                                    <ellipse stroke-width="2" fill="none" stroke="currentColor" cx="8.91718" cy="8.9167" rx="7.91718" ry="7.9167"></ellipse>
+                                    <path stroke-width="2" fill="none" stroke="currentColor" d="M16.5164 16.5176L19.9999 20.0009"></path>
+                                </svg>
+                             </a>
+                             <ul class="dropdown-menu position-absolute dropdown-menu-lg-end dropdown-menu-search p-4">
+                                 <li class="pb-3 mb-3 border-bottom">
+                                     <div class="position-relative">
+                                         <form>
+                                             <input type="text" class="form-control form-control-lg pe-5 ps-3"
+                                                 placeholder="Search here...">
+                                             <button type="submit"
+                                                 class="btn btn-outline-light border-0 text-muted me-2 size-30 p-0 flex-center position-absolute end-0 top-50 translate-middle-y">
+                                                 <svg viewBox="0 0 21 21" width="21" height="21">
+                                                    <ellipse stroke-width="2" fill="none" stroke="currentColor" cx="8.91718" cy="8.9167" rx="7.91718" ry="7.9167"></ellipse>
+                                                    <path stroke-width="2" fill="none" stroke="currentColor" d="M16.5164 16.5176L19.9999 20.0009"></path>
+                                                </svg>
+                                                </button>
+                                         </form>
+                                     </div>
+                                 </li>
+                                 <li>
+                                     <h6 class="mb-3">Quick links</h6>
+                                     <div class="d-flex align-items-center flex-wrap">
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Bags</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Bottles</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Clock</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Lamp</a>
+                                         <a href="#!" class="badge border text-body me-2 mb-2">Chairs</a>
+                                     </div>
+                                 </li>
+                             </ul>
+                         </li>
+                         <li class="nav-item ms-2">
+                            <label class="dark-mode-checkbox d-flex align-items-center nav-link p-0" for="ChangeTheme">
+                                <input type="checkbox" id="ChangeTheme"> 
+                                <span class="slide">
+                                    <i class="fas fa-moon"></i>
+                                    <i class="fas fa-sun"></i>
+                                </span> 
+                                </label>
+                         </li>
+                     </ul>
+                 </div>
+
+                 <div id="navbar" class="navbar-collapse collapse">
+
+                     <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+                         <li class="dropdown py-lg-3 me-lg-4 nav-item">
+                             <a href="#" class="dropdown-toggle nav-link  "
+                                 data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home </a>
+                             <ul class="dropdown-menu">
+                                 <li><a class="dropdown-item" href="index-2.html">V1 - Default</a></li>
+                                 <li><a class="dropdown-item" href="index-creative.html">V2 - Creative</a></li>
+                             </ul>
+                         </li>
+
+                         <li class="dropdown py-lg-3 me-lg-4 nav-item">
+                             <a href="#" class="dropdown-toggle nav-link  active"
+                                 data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                             <ul class="dropdown-menu">
+                                 <li><a class="dropdown-item" href="page-empty.html">Empty page</a></li>
+                                 <li><a class="dropdown-item" href="about.html">About us</a></li>
+                                 <li><a class="dropdown-item" href="contact.html">Contact </a></li>
+                                 <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
+                                 <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                 <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                 <li><a class="dropdown-item" href="help-center.html">Help center</a></li>
+                             </ul>
+                         </li>
+                         <!--mega menu-->
+                         <li class="position-static py-lg-3 me-lg-4 nav-item">
+                             <a href="#" class="dropdown-toggle nav-link  "
+                                 data-bs-toggle="dropdown">Shop</a>
+                             <div class="dropdown-menu w-100">
+                                 <div class="container">
+                                     <div class="row">
+
+                                         <div class="col-md-4 mb-3 mb-md-0">
+                                             <h6 class="dropdown-header">Category View</h6>
+                                             <div class="mega-menu-list list-unstyled nav">
+                                                 <a class="dropdown-item" href="cat-grid-2col.html">Grid 2
+                                                     columns</a>
+                                                 <a class="dropdown-item" href="cat-grid-3col.html">Grid 3
+                                                     columns</a>
+                                                 <a class="dropdown-item" href="cat-grid-4col.html">Grid 4
+                                                     columns</a>
+                                                 <a class="dropdown-item" href="cat-grid-masonry.html">Grid
+                                                     Masonry</a>
+                                                 <a class="dropdown-item" href="cat-list-left-sidebar.html">Left
+                                                     sidebar (List)</a>
+                                                 <a class="dropdown-item" href="cat-list-right-sidebar.html">Right Sidebar
+                                                     (List)</a>
+                                             </div>
+                                         </div>
+                                         <div class="col-md-4 mb-3 mb-md-0">
+                                             <h6 class="dropdown-header">Shop Pages </h6>
+                                             <div class="mega-menu-list list-unstyled nav">
+                                                 <a class="dropdown-item" href="product-detail-1.html">Product Detail 1</a>
+
+                                                 <a class="dropdown-item" href="cart.html">Cart</a>
+                                                 <a class="dropdown-item" href="cart-empty.html">Cart empty</a>
+                                                 <a class="dropdown-item" href="checkout-details.html">Checkout</a>
+                                                 <a class="dropdown-item" href="wishlist.html">Wishlist</a>
+                                                 <a class="dropdown-item" href="order-track.html">Order
+                                                     Tracking</a>
+                                             </div>
+
+                                         </div>
+                                         <div class="col-md-4">
+                                             <h6 class="dropdown-header">Elements</h6>
+                                             <div class="mega-menu-list list-unstyled nav">
+                                                 <a class="dropdown-item" href="element-alerts.html">Alerts</a>
+                                                 <a class="dropdown-item" href="element-buttons.html">Buttons</a>
+                                                 <a class="dropdown-item" href="element-cards.html">Cards</a>
+                                                 <a class="dropdown-item" href="element-dropdowns.html">Dropdowns</a>
+                                                 <a class="dropdown-item" href="element-forms.html">Form elements</a>
+                                                 <a class="dropdown-item" href="element-modals.html">Modals</a>
+                                                 <a class="dropdown-item" href="element-swiper-slider.html">Swiper slider</a>
+                                                 <a class="dropdown-item" href="element-tabs-accordion.html">Tabs &
+                                                     accordions</a>
+                                                 <a class="dropdown-item" href="element-tooltip-popovers.html">Tooltip &
+                                                     popovers</a>
+                                                 <a class="dropdown-item" href="element-typography.html">Typography</a>
+
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                 </div>
+                             </div>
+                         </li>
+                         <!--menu Features li end here-->
+                         <li class="nav-item py-lg-3"><a href="blog.html"
+                                 class="nav-link  ">Blog</a></li>
+
+                     </ul>
+                 </div>
+                 <!--/.nav-collapse -->
+             </div>
+             <!--/.container-fluid -->
+         </nav>
+
+          <!--cart menu Offcanvas-->
+          <div id="cartNavmenu" class="offcanvas offcanvas-end">
+             <div class="offcanvas-header border-bottom position-relative">
+
+                 <h4 class="mb-0">Your cart (3)</h4>
+                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+             </div>
+             <div class="offcanvas-body p-4 flex-grow-1">
+
+                 <!--Cart items list-->
+                 <ul class="list-unstyled cart-list mb-0">
+
+                     <!--Cart item-->
+                     <li class="d-flex mb-3 align-items-center">
+                         <div class="me-4 flex-shrink-0">
+                             <a href="#">
+                                 <img src="assets/img/products/thumb3.jpg" alt="" class="width-80 h-auto rounded-3">
+                             </a>
+                         </div>
+                         <div class="position-relative pe-5 flex-grow-1">
+                             <a href="#!"
+                             class="flex-center text-muted rounded-circle position-absolute end-0 top-50 translate-middle-y">
+                             <i class="fas fa-trash-alt"></i></a>
+                             <h6 class="mb-1"><a href="#">Dip-Dye Tote Bag</a></h6>
+                             <p class="mb-0"><span class="price text-muted small">$48.00</span> x 1</p>
+                         </div>
+                     </li>
+
+                     <!--Cart item-->
+                     <li class="d-flex mb-3 align-items-center">
+                         <div class="me-4 flex-shrink-0">
+                             <a href="#">
+                                 <img src="assets/img/products/thumb1.jpg" alt="" class="width-80 h-auto rounded-3">
+                             </a>
+                         </div>
+                         <div class="position-relative pe-5 flex-grow-1">
+                             <a href="#!"
+                                 class="flex-center text-muted rounded-circle position-absolute end-0 top-50 translate-middle-y">
+                                 <i class="fas fa-trash-alt"></i></a>
+                             <h6 class="mb-1"><a href="#">Nackless Jewelery</a></h6>
+                             <p class="mb-0"><span class="price text-muted small">$48.00</span> x 1</p>
+                         </div>
+                     </li>
+
+                     <!--Cart item-->
+                     <li class="d-flex mb-4 align-items-center">
+                         <div class="me-4 flex-shrink-0">
+                             <a href="#">
+                                 <img src="assets/img/products/thumb2.jpg" alt="" class="width-80 h-auto rounded-3">
+                             </a>
+                         </div>
+                         <div class="position-relative pe-5 flex-grow-1">
+                             <a href="#!"
+                                 class="flex-center text-muted rounded-circle position-absolute end-0 top-50 translate-middle-y">
+                                 <i class="fas fa-trash-alt"></i></a>
+                             <h6 class="mb-1"><a href="#">10-Unit System Chair</a></h6>
+                             <p class="mb-0"><span class="price text-muted small">$48.00</span> x 1</p>
+                         </div>
+                     </li>
+
+                     <!--Cart amount-->
+                     <li class="py-4 border-top border-bottom">
+                         <div class="d-flex pb-2 mb-2 border-bottom justify-content-between align-items-center">
+                             <small class="text-muted">Sub Total</small>
+                             <h6 class="mb-0">$144.00</h6>
+                         </div>
+                         <div class="d-flex pb-2 mb-2 border-bottom justify-content-between align-items-center">
+                             <small class="text-muted">Shipping charges</small>
+                             <h6 class="mb-0">$0.00</h6>
+                         </div>
+                         <div class="d-flex justify-content-between align-items-center">
+                             <span class="text-muted">Total</span>
+                             <h5 class="mb-0">$144.00</h5>
+                         </div>
+                     </li>
+                 </ul>
+             </div>
+
+             <!--Cart action-->
+             <div class="offcanvas-footer p-4">
+                 <div class="text-center d-grid">
+                     <a href="checkout-details.html" class="btn btn-secondary mb-2">Checkout</a>
+                     <a href="cart.html" class="btn btn-link">View Cart</a>
+                 </div>
+             </div>
+         </div>
+         <!--===========================End Header===========================-->
+
+
+
+        <!--page header-->
+        <div class="page-breadcrumb py-5 py-lg-7 bg-info bg-opacity-10">
+            <div class="container pt-9">
+                <h2 class="display-6 mb-0 text-center">Page empty</h2>
+            </div>
+        </div>
+        <!--end page header-->
+        <!--page start-->
+        <main>
+            <section class="position-relative">
+                <div class="container py-7">
+                    <h6 class="mb-0">Content here....</h6>
+                </div>
+            </section>
+        </main>
+
+        <!--end page-->
+
+
+        
+
+        <script src="assets/js/theme.bundle.js"></script>
+    </body>
+
+
+<!-- Mirrored from uigator.com/bootstrap5/boland-v2.1/page-empty.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Dec 2023 14:11:13 GMT -->
+</html>
