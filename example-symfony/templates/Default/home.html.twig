@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    KIABI.
+{% endblock %}
+
+{% block body %}
+    <div class="container py-7">
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="50">
+                <a class="image-box bg-dark" href="{{ path('default_latestNews') }}">
+                    <img src="{{ asset('img/img-1.jpg') }}" alt="" class="img-fluid opacity-75">
+                    <div class="img-overlay d-flex flex-center position-absolute start-0 top-0 w-100 h-100">
+                        <h3 class="text-white">Latest News</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                <a class="image-box bg-dark" href="{{ path('default_about')  }}">
+                    <img src="{{ asset('img/img-3.jpg') }}" alt="" class="img-fluid opacity-75">
+                    <div class="img-overlay d-flex flex-center position-absolute start-0 top-0 w-100 h-100">
+                        <h3 class="text-white">Our Store</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+                <a class="image-box bg-dark" href="{{ path('product_show') }}">
+                    <img src="{{ asset('img/img-2.jpg') }}" alt="" class="img-fluid opacity-75">
+                    <div class="img-overlay d-flex flex-center position-absolute start-0 top-0 w-100 h-100">
+                        <h3 class="text-white">Products</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <section class="position-relative">
+        <div class="container py-7">
+            <div class="row">
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <i
+                                class="fas fa-sync size-80 flex-center rounded-pill border border-2 text-primary border-primary fs-2 flex-shrink-0"></i>
+                        <div class="flex-grow-1 ps-4">
+                            <h5>Hassle-free replacement</h5>
+                            <p class="mb-0 text-muted">7 Days easy replacement policy on All products</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/col-->
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <i
+                                class="fas fa-credit-card size-80 flex-center rounded-pill border border-2 text-primary border-primary fs-2 flex-shrink-0"></i>
+                        <div class="flex-grow-1 ps-4">
+                            <h5>Secure payment</h5>
+                            <p class="mb-0 text-muted">We support Debit & Credit Cards, Wallet, Paypal</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/col-->
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center">
+                        <i
+                                class="fas fa-truck size-80 flex-center rounded-pill border border-2 text-primary border-primary fs-2 flex-shrink-0"></i>
+                        <div class="flex-grow-1 ps-4">
+                            <h5>Free shipping</h5>
+                            <p class="mb-0 text-muted">Free shipping worldwide on order above $150</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/col-->
+            </div>
+        </div>
+    </section>
+{% endblock %}

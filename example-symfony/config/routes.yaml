@@ -40,16 +40,45 @@ product_viewing:
     defaults:
         id: 1
 
-product_login:
-    path: /product/login
-    controller: App\Controller\ProductController::login
+default_login:
+    path: /default/login
+    controller: App\Controller\DefaultController::login
 
-product_about:
-    path: /product/about
-    controller: App\Controller\ProductController::about
+default_about:
+    path: /default/about
+    controller: App\Controller\DefaultController::about
 
 product_cart:
     path: /product/cart
     controller: App\Controller\ProductController::cart
 
+default_home:
+    path: /
+    controller: App\Controller\DefaultController::home
 
+product_detail:
+    path: /product/detail_1/{id}
+    controller: App\Controller\ProductController::product_detail
+    requirements:
+        id: \d+
+
+
+product_category:
+    path: /product/category
+    controller: App\Controller\ProductController::product_category
+
+default_latestNews:
+    path: /default/latestNews
+    controller: App\Controller\DefaultController::latestNews
+
+default_newsOne:
+    path: /default/newsOne
+    controller: App\Controller\DefaultController::newsOne
+
+default_contacts:
+    path: /default/contacts
+    controller: App\Controller\DefaultController::contacts
+
+cart_cart:
+    path: /cart/cart
+    controller: App\Controller\CartController::cart

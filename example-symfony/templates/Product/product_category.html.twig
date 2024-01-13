@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    About us!
+{% endblock %}
+
+{% block body %}
+    <section class="overflow-hidden position-relative">
+        <div class="container pb-7">
+            <h2 class="text-center mb-4 display-6" data-aos="zoom-in" data-aos-delay="50">Shop by Category</h2>
+            <div class="swiper-container swiper-category">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a class="card border-0 category-box text-body" href="#">
+                            <img src="{{ asset('img/img1.jpg') }}" width="500" height="200" alt="" class="img-fluid">
+                            <div
+                                    class="card-body category-text d-flex align-items-center justify-content-between p-4">
+                                <h4 class="h5 mb-0">Trousers</h4>
+                                <p class="mb-0 small flex-shrink-0">1 item</p>
+                            </div>
+                        </a>
+                        <!--/category-box-->
+                    </div>
+                    <!--/item-->
+                    <div class="swiper-slide">
+                        <a class="card border-0 text-body category-box" href="#">
+                            <img src="{{ asset('img/img2.jpg') }}" width="400" height="200" alt="" class="img-fluid">
+                            <div
+                                    class="card-body category-text d-flex align-items-center justify-content-between p-4">
+                                <h4 class="h5 mb-0">Sweatshirts</h4>
+                                <p class="mb-0 small flex-shrink-0">1 item</p>
+                            </div>
+                        </a>
+                        <!--/category-box-->
+                    </div>
+                    <!--/item-->
+                    <div class="swiper-slide">
+                        <a class="card border-0 text-body category-box" href="#">
+                            <img src="{{ asset('img/img3.jpg') }}" width="500" height="200" alt="" class="img-fluid">
+                            <div
+                                    class="card-body category-text d-flex align-items-center justify-content-between p-4">
+                                <h4 class="h5 mb-0">Dresses</h4>
+                                <p class="mb-0 small flex-shrink-0">1 item</p>
+                            </div>
+                        </a>
+                        <!--/category-box-->
+                    </div>
+                    <!--/item-->
+                    <div class="swiper-slide">
+                        <a class="card border-0 text-body category-box" href="#">
+                            <img  src="{{ asset('img/img4.jpg') }}" width="500" height="200" alt="" class="img-fluid">
+                            <div
+                                    class="card-body category-text d-flex align-items-center justify-content-between p-4">
+                                <h4 class="h5 mb-0">Sportswear</h4>
+                                <p class="mb-0 small flex-shrink-0">1 item</p>
+                            </div>
+                        </a>
+                        <!--/category-box-->
+                    </div>
+                    <!--/item-->
+                    <div class="swiper-slide">
+                        <a class="card border-0 text-body category-box" href="#">
+                            <img src="{{ asset('img/img5.jpg') }}" width="500" height="200" alt="" class="img-fluid">
+                            <div
+                                    class="card-body category-text d-flex align-items-center justify-content-between p-4">
+                                <h4 class="h5 mb-0">Shirts</h4>
+                                <p class="mb-0 small flex-shrink-0">1 item</p>
+                            </div>
+                        </a>
+                        <!--/category-box-->
+                    </div>
+                    <!--/item-->
+                </div>
+                <!--Pagination-->
+                <div class="position-relative pt-5">
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

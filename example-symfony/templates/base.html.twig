@@ -36,44 +36,10 @@
         {% endblock %}
     </head>
     <body>
-    <!--top bar-->
-    <div class="top-bar navbar py-0 w-100 d-block border-bottom">
-        <div class="container d-block">
-            <div class="row align-items-center">
-                <div class="col-md-6 d-none d-md-block">
-                    <span class="small text-muted">Free shipping worldwide on order above $150</span>
-                </div>
-                <div class="col-md-6 col-12">
-                    <ul class="nav d-flex justify-content-end align-items-center mb-0">
-                        <li class="nav-item py-1"><a href="#" class="text-muted px-1 px-lg-2 small nav-link"><i
-                                        class="far fa-heart"></i>
-                                <small>(0)</small></a></li>
-                        <li class="nav-item dropdown py-1"><a href="#" data-bs-toggle="dropdown"
-                                                              class="dropdown-toggle text-muted nav-link px-1 px-lg-2"><img
-                                        class="align-middle" src="{{ asset('img/flags/usa.png') }}" alt="">
-                            </a>
-                            <ul class="mt-0 dropdown-menu dropdown-menu-end dropdown-menu-xs p-2">
-                                <li><a class="dropdown-item px-1 d-flex align-items-center" href="javascript:void(0)"><img
-                                                class="width-25 d-block mx-auto h-auto" src="{{ asset('img/flags/usa.png') }}" alt="Usa"></a></li>
-                                <li><a class="dropdown-item px-1 d-flex align-items-center" href="javascript:void(0)"><img
-                                                class="width-25 d-block mx-auto h-auto" src="{{ asset('img/flags/spanish.png') }}" alt="Spanish"></a></li>
-                                <li><a class="dropdown-item px-1 d-flex align-items-center" href="javascript:void(0)"><img
-                                                class="width-25 d-block mx-auto h-auto" src="{{ asset('img/flags/german.png') }}" alt="German"></a></li>
-                                <li><a class="dropdown-item px-1 d-flex align-items-center" href="javascript:void(0)"><img
-                                                class="width-25 d-block mx-auto h-auto" src="{{ asset('img/flags/fr.png') }}" alt="French"></a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end top bar-->
     <!-- Static navbar -->
     <nav class="navbar py-3 py-lg-0 navbar-light navbar-expand-lg">
         <div class="container d-flex">
-            <a class="navbar-brand" href="index-2.html">
+            <a class="navbar-brand" href="{{ path('default_home') }}">
                 <img src="{{ asset('img/images.png') }}" class="logo-light" alt="">
             </a>
             <div class="d-flex flex-row order-lg-last align-items-center">
@@ -83,7 +49,7 @@
                 </button>
                 <ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
                     <li class="cart-nav nav-item py-lg-3">
-                        <a href="login.html" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
+                        <a href="{{ path('default_login') }}" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
                             <svg viewBox="0 0 21 21" height="21" width="21">
                                 <path d="M16.2099 6.55345C16.2906 9.70291 13.7989 12.324 10.6445 12.4078C7.49013 12.4916 4.86754 10.0064 4.78681 6.85689C4.70607 3.70744 7.19776 1.08637 10.3522 1.00258C13.5065 0.918785 16.1291 3.404 16.2099 6.55345Z" stroke="currentColor" stroke-width="1.8" fill="none"></path>
                                 <path d="M19.5 19.9997C19.5 19.9997 15.4706 15.668 10.5 15.668C5.52944 15.668 1.5 19.9997 1.5 19.9997" stroke="currentColor" stroke-width="1.8" fill="none"></path>
@@ -129,16 +95,6 @@
                                     </form>
                                 </div>
                             </li>
-                            <li>
-                                <h6 class="mb-3">Quick links</h6>
-                                <div class="d-flex align-items-center flex-wrap">
-                                    <a href="#!" class="badge border text-body me-2 mb-2">Trousers</a>
-                                    <a href="#!" class="badge border text-body me-2 mb-2">Sweatshirts</a>
-                                    <a href="#!" class="badge border text-body me-2 mb-2">Dresses</a>
-                                    <a href="#!" class="badge border text-body me-2 mb-2">Sportswear</a>
-                                    <a href="#!" class="badge border text-body me-2 mb-2">Shirts</a>
-                                </div>
-                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -149,25 +105,25 @@
                 <ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
                     <li class="dropdown py-lg-3 me-lg-4 nav-item">
                         <a href="#" class="dropdown-toggle nav-link  active"
-                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home </a>
+                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ path('product_show') }}">All goods</a></li>
-                            <li><a class="dropdown-item" href="{{ path('product_add') }}">Add product</a></li>
+                            <li><a class="dropdown-item" href="{{ path('product_category') }}">Category</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown py-lg-3 me-lg-4 nav-item">
                         <a href="#" class="dropdown-toggle nav-link  "
-                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us | Contacts</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ path('product_about') }}">About us/Contacts</a></li>
-                            <li><a class="dropdown-item" href="{{ path('product_login') }}">Login</a></li>
+                            <li><a class="dropdown-item" href="{{ path('default_about') }}">About us</a></li>
+                            <li><a class="dropdown-item" href="{{ path('default_contacts') }}">Contacts</a></li>
                         </ul>
                     </li>
                     <!--mega menu-->
                     <li class="position-static dropdown py-lg-3 me-lg-4 nav-item">
                         <a href="#" class="dropdown-toggle nav-link  "
-                           data-bs-toggle="dropdown">Shop</a>
+                           data-bs-toggle="dropdown">Login</a>
                         <div class="dropdown-menu w-100">
                             <div class="container">
                                 <div class="row">
@@ -175,8 +131,8 @@
                                         <h6 class="dropdown-header">Shop Pages </h6>
                                         <div class="mega-menu-list list-unstyled nav">
 
-                                            <a class="dropdown-item" href="{{ path('product_viewing') }}">Product Detail 1</a>
-                                            <a class="dropdown-item" href="{{ path('product_cart') }}">Cart</a>
+                                            <a class="dropdown-item" href="{{ path('default_login') }}">Login</a>
+
 
                                         </div>
 
@@ -186,7 +142,7 @@
                         </div>
                     </li>
                     <!--menu Features li end here-->
-                    <li class="nav-item py-lg-3"><a href="blog.html"
+                    <li class="nav-item py-lg-3"><a href="{{ path('default_latestNews') }}"
                                                     class="nav-link  ">Blog</a></li>
 
                 </ul>
@@ -196,17 +152,14 @@
         <!--/.container-fluid -->
     </nav>
 
-        <hr/>
-        </div>
-        <a href="{{ path('product_add') }}">Product add</a>
-        </br>
-        <a href="{{ path('product_show') }}">Product show</a>
-        </br>
-        <a href="{{ path('product_viewing') }}">Product viewing</a>
-        </br>
-        <a href="{{ path('product_search') }}">Product search</a>
-        </br>
-        <a href="{{ path('product_sort') }}">Product sort</a>
+
+
+
+    <main data-sticky-container>
+        {% block body %}
+         {% endblock %}
+    </main>
+
 
     <!--footer-->
     <footer class="footer border-top">
@@ -231,52 +184,39 @@
                     <ul class="list-unstyled mb-0">
                         <li class="d-flex mb-4 align-items-stretch">
                             <div class="me-3">
-                                <a href="#">
-                                    <img src="assets/img/img-1.jpg" alt="" class="width-70 h-auto rounded-3">
+                                <a href="{{ path('default_newsOne') }}">
+                                    <img src="{{ asset('img/img-1.jpg') }}" alt="" class="width-70 h-auto rounded-3">
                                 </a>
                             </div>
                             <div class="flex-grow-1 overflow-hidden">
-                                <h6 class="mb-1"><a href="#">Commonly used in the graphic</a></h6>
-                                <span><a href="#" class="small text-muted">5 Comments</a></span>
+                                <h6 class="mb-1"><a href="{{ path('default_newsOne') }}">Commonly used in the graphic</a></h6>
                             </div>
                         </li>
                         <li class="d-flex mb-4 align-items-stretch">
                             <div class="me-3">
-                                <a href="#">
-                                    <img src="assets/img/img-2.jpg" alt="" class="width-70 h-auto rounded-3">
+                                <a href="{{ path('default_newsOne') }}">
+                                    <img src="{{ asset('img/img-2.jpg') }}" alt="" class="width-70 h-auto rounded-3">
                                 </a>
                             </div>
                             <div class="flex-grow-1 overflow-hidden">
-                                <h6 class="mb-1"><a href="#">Lorem ipsum is placeholder text commonly used in the graphic</a></h6>
-                                <span><a href="#" class="small text-muted">5 Comments</a></span>
+                                <h6 class="mb-1"><a href="{{ path('default_newsOne') }}">Lorem ipsum is placeholder text commonly used in the graphic</a></h6>
                             </div>
                         </li>
                         <li class="d-flex align-items-stretch">
                             <div class="me-3">
-                                <a href="#">
+                                <a href="{{ path('default_newsOne') }}">
                                     <img src="{{ asset('img/img-3.jpg') }}" alt="" class="width-70 h-auto rounded-3">
                                 </a>
                             </div>
                             <div class="flex-grow-1 overflow-hidden">
-                                <h6 class="mb-1"><a href="#">
+                                <h6 class="mb-1"><a href="{{ path('default_newsOne') }}">
                                         Lorem ipsum is placeholder text commonly used in the graphic
                                     </a></h6>
-                                <span><a href="#" class="small text-muted">5 Comments</a></span>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <!--/col-->
-                <div class="col-lg-3 col-sm-5 col-xl-2 mb-5">
-                    <h5 class="mb-4">Quick Links</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#">My Account</a></li>
-                        <li class="my-2"><a href="#">Orders</a></li>
-                        <li class="my-2"><a href="#">News</a></li>
-                        <li><a href="#">Terms & conditions</a></li>
-                    </ul>
-                </div>
-                <!--/col-->
+
                 <div class="col-lg-3 col-sm-7 mb-5">
                     <h5 class="mb-4">Newsletter</h5>
                     <div class="newsletter-form mb-4">
@@ -350,7 +290,7 @@
     </footer>
     <!--/footer-->
     <!--Common plugins-->
-    <script data-cfasync="false" src="https://uigator.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/theme.bundle.js"></script>
+    <script data-cfasync="false" src="https://uigator.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{{ asset('js/theme.bundle.js') }}"></script>
 
     <!--page template scripts-->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
