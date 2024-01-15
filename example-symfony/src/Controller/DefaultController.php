@@ -11,31 +11,31 @@ class DefaultController extends AbstractController
 {
     public function home(): Response
     {
-        return $this->render('default/home.html.twig');
+        return $this->render('Default/home.html.twig');
     }
 
     public function login(): Response
     {
-        return $this->render('default/login.html.twig');
+        return $this->render('Default/login.html.twig');
     }
 
     public function about(): Response
     {
-        return $this->render('default/about.html.twig');
+        return $this->render('Default/about.html.twig');
     }
 
     public function latestNews(): Response
     {
-        return $this->render('default/latestNews.html.twig');
+        return $this->render('Default/latestNews.html.twig');
     }
 
     public function newsOne(): Response
     {
-        return $this->render('default/newsOne.html.twig');
+        return $this->render('Default/newsOne.html.twig');
     }
 
     public function contacts(): Response
     {
-        return $this->render('default/contacts.html.twig');
+        return $this->render('Default/contacts.html.twig');
     }
 }
