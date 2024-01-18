@@ -72,8 +72,10 @@ default_latestNews:
     controller: App\Controller\DefaultController::latestNews
 
 default_newsOne:
-    path: /default/newsOne
+    path: /default/newsOne/{id}
     controller: App\Controller\DefaultController::newsOne
+    requirements:
+        id: \d+
 
 default_contacts:
     path: /default/contacts
@@ -82,3 +84,7 @@ default_contacts:
 cart_cart:
     path: /cart/cart
     controller: App\Controller\CartController::cart
+
+default_newsList:
+    path: /default/newsList
+    controller: App\Controller\DefaultController::newsList

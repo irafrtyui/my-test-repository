@@ -1,0 +1,20 @@
+
+    <div class="col-lg-3 col-sm-6 col-xl-4 mb-5">
+        <h5 class="mb-4">Latest News</h5>
+        <ul class="list-unstyled mb-0">
+            {% for item in list %}
+            <li class="d-flex mb-4 align-items-stretch">
+                <div class="me-3">
+                    <a href="#">
+                        <img src="{{ item.image }}" alt="" class="width-70 h-auto rounded-3">
+                    </a>
+                </div>
+                <div class="flex-grow-1 overflow-hidden">
+                    <h6 class="mb-1"><a href="{{ path('default_newsOne', {id:item.id}) }}">{{ item.name }}</a></h6>
+                    <span><a href="#" class="small text-muted">5 Comments</a></span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+

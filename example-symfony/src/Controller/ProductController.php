@@ -2,21 +2,32 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Product;
 
+
+
 class ProductController extends AbstractController
 {
-    public function show(EntityManagerInterface $entityManager): Response
+    public function show(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $products = $entityManager->getRepository(Product::class)->findAll();
+        if($categoryId = $request->get('categoryId')){
+        $products = $entityManager->getRepository(Product::class)->findBy([
+            'category' => $categoryId
+        ]);
+        } else {
+            $products = $entityManager->getRepository(Product::class)->findAll();
+        }
         return $this->render('Product/show.html.twig', [
-            'products' => $products,
+            'products' => $products
         ]);
     }
+
 
     public function sort(): Response
     {
@@ -42,14 +53,20 @@ class ProductController extends AbstractController
     public function product_detail(int $id, EntityManagerInterface $entityManager): Response
     {
         $product = $entityManager->getRepository(Product::class)->find($id);
-        return $this->render('Product/product_detail.html.twig',[
+        return $this->render('Product/product_detail.html.twig', [
             'product' => $product
         ]);
     }
 
 
-    public function product_category(): Response
+    public function product_category(EntityManagerInterface $em): Response
     {
-        return $this->render('Product/product_category.html.twig');
+        //$categoryId = $request->get('categoryId');
+
+        $category = $em->getRepository(Category::class)->findAll();
+        return $this->render('Product/product_category.html.twig', [
+            'category' => $category,
+        ]);
     }
+
 }

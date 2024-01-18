@@ -2,31 +2,29 @@
 
 namespace App\Entity;
 
-use App\Repository\ProductRepository;
+use App\Repository\PostsRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ProductRepository::class)]
-class Product
+#[ORM\Entity(repositoryClass: PostsRepository::class)]
+class Posts
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private int $id;
+    private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private string $image;
 
     #[ORM\Column(length: 100)]
     private string $name;
 
-    #[ORM\Column]
-    private int $price;
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 255)]
     private string $description;
-
-    #[ORM\ManyToOne]
-    private ?Category $category = null;
 
     public function getId(): ?int
     {
@@ -57,14 +55,14 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->price;
+        return $this->date;
     }
 
-    public function setPrice(int $price): static
+    public function setDate(\DateTimeInterface $date): static
     {
-        $this->price = $price;
+        $this->date = $date;
 
         return $this;
     }
@@ -77,18 +75,6 @@ class Product
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): static
-    {
-        $this->category = $category;
 
         return $this;
     }
