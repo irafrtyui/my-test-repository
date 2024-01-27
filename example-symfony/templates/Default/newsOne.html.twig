@@ -17,7 +17,7 @@
                             </div>
                             <h2 class="mb-4 display-5">{{ post.name }}</h2>
                             <p class="lead">
-                                {{ post.description }}
+                                {{ post.content }}
                             </p>
                             <ul class="list-unstyled my-7 d-flex align-items-center">
                                 <li class="small me-3 text-muted">Share this post</li>
@@ -43,5 +43,26 @@
                         </div>
                     </div>
 
+    </div>
+
+    <hr class="my-5">
+    <div class="comments">
+        <h4 class="mb-6">3 Comments</h4>
+        <ul class="comments-list list-unstyled">
+            <li class="d-flex align-items-start mb-5">
+                <div class="flex-grow-1">
+                    <div class="d-flex mb-2 align-items-center justify-content-between">
+                        <div>
+                            <h5 class="mb-0">Mark Smith</h5>
+                            <small class="text-muted">Nov. 12, 2016 at 11:15: AM</small>
+                        </div>
+                    </div>
+                    <p class="mb-0">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </p>
+                </div>
+            </li>
+        </ul>
     </div>
 {% endblock %}

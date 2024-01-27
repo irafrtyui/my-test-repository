@@ -21,6 +21,21 @@ class PostsRepository extends ServiceEntityRepository
         parent::__construct($registry, Posts::class);
     }
 
+
+    public function GetNewsList(): array
+    {
+        $sql = 'select 
+       posts.image, 
+       posts.name,
+        count(comments.id) as comments
+        from posts
+        left join comments on comments.post_id = posts.id
+        group by posts.id
+        limit 3';
+        $connection = $this->_em->getConnection();
+        $stm = $connection->prepare($sql);
+        return $stm->executeQuery()->fetchAllAssociative();
+    }
 //    /**
 //     * @return Posts[] Returns an array of Posts objects
 //     */

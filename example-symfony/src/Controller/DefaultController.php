@@ -3,8 +3,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Comments;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Posts;
@@ -34,9 +36,9 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    public function newsList(EntityManagerInterface $em): Response
+    public function newsList(Request $request, EntityManagerInterface $em): Response
     {
-        $list = $em->getRepository(Posts::class)->findAll();
+        $list = $em->getRepository(Posts::class)->GetNewsList();
         return $this->render('Default/newsList.html.twig', [
             'list' => $list,
         ]);
@@ -50,6 +52,8 @@ class DefaultController extends AbstractController
             'post' => $post
         ]);
     }
+
+
 
     public function contacts(): Response
     {
