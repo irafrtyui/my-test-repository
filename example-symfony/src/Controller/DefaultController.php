@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Comments;
+use App\Form\CommentsForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,11 +46,30 @@ class DefaultController extends AbstractController
     }
 
 
-    public function newsOne(int $id,EntityManagerInterface $entityManager): Response
+    public function newsOne(int $id, Request $request, EntityManagerInterface $entityManager): Response
     {
         $post = $entityManager->getRepository(Posts::class)->find($id);
+
+        $form = $this->createForm(CommentsForm::class);
+        $form->handleRequest($request);
+
+        $isSubmitted = false;
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Comments $comment */
+        $comment = $form->getData();
+        $comment->setDate(new \DateTime());
+        $comment->setPost($post);
+
+        $entityManager->persist($comment);
+        $entityManager->flush();
+
+        $isSubmitted = true;
+        $form = $this->createForm(CommentsForm::class);
+        }
         return $this->render('Default/newsOne.html.twig', [
-            'post' => $post
+            'post' => $post,
+            'form' => $form->createView(),
+            'isSubmitted' => $isSubmitted,
         ]);
     }
 

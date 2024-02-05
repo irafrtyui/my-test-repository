@@ -10,8 +10,8 @@
                     </a>
                 </div>
                 <div class="flex-grow-1 overflow-hidden">
-                    <h6 class="mb-1"><a href="">{{ item.name }}</a></h6>
-                    <span><a href="#" class="small text-muted">{{ item.comments }}</a></span>
+                    <h6 class="mb-1"><a href="{{ path('default_newsOne', {id:item.id}) }}">{{ item.name }}</a></h6>
+                    <span><a href="#" class="small text-muted">{{ item.comments }} Comments</a></span>
                 </div>
             </li>
             {% endfor %}

@@ -25,6 +25,7 @@ class PostsRepository extends ServiceEntityRepository
     public function GetNewsList(): array
     {
         $sql = 'select 
+       posts.id,
        posts.image, 
        posts.name,
         count(comments.id) as comments
