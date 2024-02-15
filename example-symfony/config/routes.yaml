@@ -88,3 +88,7 @@ cart_cart:
 default_newsList:
     path: /default/newsList
     controller: App\Controller\DefaultController::newsList
+
+export_newsList:
+    path: /default/exportList
+    controller: App\Controller\DefaultController::exportList
