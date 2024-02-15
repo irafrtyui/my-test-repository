@@ -5,12 +5,15 @@ namespace App\Controller;
 
 use App\Entity\Comments;
 use App\Form\CommentsForm;
+use App\Services\Export;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Posts;
+
 
 class DefaultController extends AbstractController
 {
@@ -78,5 +81,19 @@ class DefaultController extends AbstractController
     public function contacts(): Response
     {
         return $this->render('Default/contacts.html.twig');
+    }
+
+    public function exportList(Export $export, EntityManagerInterface $em): Response
+    {
+        $list = $em->getRepository(Posts::class)->GetNewsList();
+        $file = $export->exportNews($list);
+
+        $response = new BinaryFileResponse($file);
+        $response->headers->set('Content-type', 'text/csv');
+        $response->setContentDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            'export-data.csv'
+        );
+        return $response;
     }
 }
