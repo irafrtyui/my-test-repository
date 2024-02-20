@@ -4,23 +4,60 @@
 namespace App\Controller;
 
 use App\Entity\Comments;
+use App\Entity\Mail;
 use App\Form\CommentsForm;
+use App\Form\MailForm;
 use App\Services\Export;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Posts;
+use Symfony\Component\Mailer\MailerInterface;
 
 
 class DefaultController extends AbstractController
 {
-    public function home(): Response
+    public function home(int $id, Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
     {
-        return $this->render('Default/home.html.twig');
+        //$post = $entityManager->getRepository(Posts::class)->find($id);
+
+        $form = $this->createForm(MailForm::class);
+        $form->handleRequest($request);
+
+        $isSubmitted = false;
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Mail $mail */
+            $mail = $form->getData();
+            //$mail->setPost($post);
+
+            $entityManager->persist($mail);
+            $entityManager->flush();
+
+            $message = new Email();
+            $message->from('kiabi@smtp.gmail.com');
+            $message->to('irafrtyui@ukr.net');
+            $message->text('Hello!');
+            $message->html($this->renderView('Mail/feedback.html.twig', [
+                'email' => $mail->getEmail(),
+                'name' => $mail->getName(),
+                'message' => $mail->getMessage()
+            ]));
+            $message->subject('Feedback: [' . $mail->getMessage() . ']');
+
+            $mailer->send($message);
+            $isSubmitted = true;
+            $form = $this->createForm(MailForm::class);
+        }
+        return $this->render('Default/home.html.twig', [
+            'form' => $form->createView(),
+            'isSubmitted' => $isSubmitted,
+        ]);
     }
+
 
     public function login(): Response
     {
@@ -59,15 +96,15 @@ class DefaultController extends AbstractController
         $isSubmitted = false;
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Comments $comment */
-        $comment = $form->getData();
-        $comment->setDate(new \DateTime());
-        $comment->setPost($post);
+            $comment = $form->getData();
+            $comment->setDate(new \DateTime());
+            $comment->setPost($post);
 
-        $entityManager->persist($comment);
-        $entityManager->flush();
+            $entityManager->persist($comment);
+            $entityManager->flush();
 
-        $isSubmitted = true;
-        $form = $this->createForm(CommentsForm::class);
+            $isSubmitted = true;
+            $form = $this->createForm(CommentsForm::class);
         }
         return $this->render('Default/newsOne.html.twig', [
             'post' => $post,
@@ -75,7 +112,6 @@ class DefaultController extends AbstractController
             'isSubmitted' => $isSubmitted,
         ]);
     }
-
 
 
     public function contacts(): Response

@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Comments;
+use App\Entity\Mail;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -11,13 +11,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-
-class CommentsForm extends AbstractType
+class MailForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('email');
         $builder->add('name');
-        $builder->add('comment', TextareaType::class, [
+        $builder->add('message', TextareaType::class, [
             'constraints' => [
                 new NotBlank(),
                 new Length([
@@ -31,7 +31,7 @@ class CommentsForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Comments::class
+            'data_class' => Mail::class
         ]);
     }
 }
