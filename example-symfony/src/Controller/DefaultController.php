@@ -21,10 +21,12 @@ use Symfony\Component\Mailer\MailerInterface;
 
 class DefaultController extends AbstractController
 {
-    public function home(int $id, Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
+    public function home(): Response
     {
-        //$post = $entityManager->getRepository(Posts::class)->find($id);
-
+        return $this->render('Default/home.html.twig');
+    }
+    public function feedback(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
+    {
         $form = $this->createForm(MailForm::class);
         $form->handleRequest($request);
 
@@ -38,26 +40,25 @@ class DefaultController extends AbstractController
             $entityManager->flush();
 
             $message = new Email();
-            $message->from('kiabi@smtp.gmail.com');
+            $message->from('alex.course.test@smtp.gmail.com');
             $message->to('irafrtyui@ukr.net');
             $message->text('Hello!');
-            $message->html($this->renderView('Mail/feedback.html.twig', [
+            $message->html($this->renderView('Mail/review.html.twig', [
                 'email' => $mail->getEmail(),
                 'name' => $mail->getName(),
                 'message' => $mail->getMessage()
             ]));
-            $message->subject('Feedback: [' . $mail->getMessage() . ']');
+            $message->subject('Feedback: [' . $mail->getEmail() . ']');
 
             $mailer->send($message);
             $isSubmitted = true;
             $form = $this->createForm(MailForm::class);
         }
-        return $this->render('Default/home.html.twig', [
+        return $this->render('Default/feedback.html.twig', [
             'form' => $form->createView(),
             'isSubmitted' => $isSubmitted,
         ]);
     }
-
 
     public function login(): Response
     {

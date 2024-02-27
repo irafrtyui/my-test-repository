@@ -1,0 +1,18 @@
+
+
+<div class="col-lg-3 col-sm-7 mb-5">
+    <h5 class="mb-4">Newsletter</h5>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form.email) }}
+    {{ form_errors(form.email) }}
+
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+
+    {{ form_widget(form.message) }}
+    {{ form_errors(form.message) }}
+    <button class="btn btn-primary d-block w-100" type="submit">Subscribe
+        <i class="fa fa-angle-right ms-1 lh-1"></i>
+    </button>
+{{ form_end(form) }}
