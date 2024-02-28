@@ -40,7 +40,7 @@ class DefaultController extends AbstractController
             $entityManager->flush();
 
             $message = new Email();
-            $message->from('alex.course.test@smtp.gmail.com');
+            $message->from('alex.course.test@gmail.com');
             $message->to('irafrtyui@ukr.net');
             $message->text('Hello!');
             $message->html($this->renderView('Mail/review.html.twig', [
