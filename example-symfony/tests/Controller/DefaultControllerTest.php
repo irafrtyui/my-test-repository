@@ -36,24 +36,11 @@ class DefaultControllerTest extends WebTestCase
 
     }
 
-    //  public function testCommentsForm()
-    // {
-    //     $client = static::createClient();
-    //     $crawler = $client->request('GET', '/default/newsOne/{id}');
 
-    //    $buttonCrawlerNode = $crawler->selectButton('submit');
-    //   $form = $buttonCrawlerNode->form();
-
-    //    $client->submit($form, [
-    //       'name'    => 'Mark',
-    //      'comment' => 'Thank You!',
-    //  ]);
-    // }
-
- /*   public function testCommentsForm()
+    public function testCommentsForm()
     {
         $client = static::createClient();
-        $client->request('POST', '/default/newsOne/{id}');
+        $client->request('POST', '/default/newsOne/1');
         self::assertSame(200, $client->getResponse()->getStatusCode());
 
 
@@ -69,8 +56,12 @@ class DefaultControllerTest extends WebTestCase
             $values,
             $form->getPhpFiles()
         );
-    }
-*/
+        $response = $client->getResponse();
+        $content = $response->getContent();
+        $this->assertStringContainsString('Thanks for your comment!', $content);
 
     }
+
+
+}
 

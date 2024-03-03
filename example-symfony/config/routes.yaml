@@ -77,6 +77,11 @@ default_newsOne:
     requirements:
         id: \d+
 
+feedback_form:
+    path: /feedback
+    controller: App\Controller\DefaultController::feedback
+
+
 default_contacts:
     path: /default/contacts
     controller: App\Controller\DefaultController::contacts

@@ -2,7 +2,9 @@
 
 <div class="col-lg-3 col-sm-7 mb-5">
     <h5 class="mb-4">Newsletter</h5>
-    {{ form_start(form) }}
+    {{ form_start(form, {
+        action: path('feedback_form')
+    }) }}
     {{ form_errors(form) }}
     {{ form_widget(form.email) }}
     {{ form_errors(form.email) }}
