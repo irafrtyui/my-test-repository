@@ -97,3 +97,7 @@ default_newsList:
 export_newsList:
     path: /default/exportList
     controller: App\Controller\DefaultController::exportList
+
+admin_comments:
+    path: /admin/commentsList
+    controller: App\Controller\Admin\AdminController::commentsList

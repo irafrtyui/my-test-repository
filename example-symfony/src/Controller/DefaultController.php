@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Posts;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
 class DefaultController extends AbstractController
@@ -62,9 +63,12 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    public function login(): Response
+    public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        return $this->render('Default/login.html.twig');
+        $error = $authenticationUtils->getLastAuthenticationError();
+        return $this->render('Default/login.html.twig', [
+            'error' => $error,
+            ]);
     }
 
     public function about(): Response

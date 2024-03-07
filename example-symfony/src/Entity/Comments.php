@@ -24,7 +24,7 @@ class Comments
     private ?string $comment = null;
 
     #[ORM\ManyToOne]
-    private ?posts $post = null;
+    private ?Posts $post = null;
 
     public function getId(): ?int
     {

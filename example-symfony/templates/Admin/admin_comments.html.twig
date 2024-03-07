@@ -1,0 +1,20 @@
+<div class="comments">
+    <h4 class="mb-6">All Comments</h4>
+    {% for item in list %}
+    <ul class="comments-list list-unstyled">
+        <li class="d-flex align-items-start mb-5">
+            <div class="flex-grow-1">
+                <div class="d-flex mb-2 align-items-center justify-content-between">
+                    <div>
+                        <h5 class="mb-0">{{ item.name }}</h5>
+                        <small class="text-muted">{{ item.date|format_date }}</small>
+                    </div>
+                </div>
+                <p class="mb-0">
+                    {{ item.comment }}
+                </p>
+            </div>
+        </li>
+    </ul>
+    {% endfor %}
+</div>

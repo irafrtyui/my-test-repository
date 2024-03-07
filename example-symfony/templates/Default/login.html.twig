@@ -15,32 +15,25 @@
             <div class="container py-7">
                 <div class="row">
                     <div class="col-lg-6 mx-auto col-md-8">
-                        <p>Fill the details to Login in your account</p>
-                        <form class="margin-b-30 needs-validation" novalidate>
+                        <form action="{{ path('default_login') }}" method="post" class="margin-b-30 needs-validation" novalidate>
+                            {% if error %}
+                            <div class="alert alert-danger">{{ error.message }}</div>
+                            {% endif %}
                             <div class="mb-3">
                                 <label class="sr-only" for="login-email">Email</label>
-                                <input id="login-email" required name="login-email" type="email" class="form-control form-control-lg" placeholder="Email">
+                                <input id="login-email" required name="_username" type="" class="form-control form-control-lg" placeholder="Login">
                             </div><!--//form-group-->
                             <div class="mb-3">
                                 <label class="sr-only" for="login-password">Password</label>
-                                <input id="login-password" name="login-password" required type="password" class="form-control form-control-lg" placeholder="Password">
+                                <input id="login-password" name="_password" required type="password" class="form-control form-control-lg" placeholder="Password">
 
                             </div><!--/form-group-->
                             <div class="d-flex mb-3 align-items-center justify-content-between">
-                                <div class="form-check">
-                                    <input required id="remmeberMe" type="checkbox" class="form-check-input">
-                                    <label class="form-check-label" for="remmeberMe">Remeber me
-                                    </label>
-                                </div>
 
-                                <a href="#!" class="pull-right forget-paddword">Forget Password?</a>
                             </div><!--/extra-->
                             <div class="d-grid mb-4">
                                 <button type="submit" class="btn btn-lg btn-block btn-secondary">Log in</button>
                             </div>
-                            <p class="mb-0">
-                                Don't have an account? <a href="register.html">Create new account</a>
-                            </p>
                         </form>
                     </div>
                 </div>
