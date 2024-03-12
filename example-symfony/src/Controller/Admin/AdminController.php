@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminController extends AbstractController
 {
+    public function adminHome(): Response
+    {
+        return $this->render('Admin/adminhome.html.twig');
+    }
     public function commentsList(EntityManagerInterface $entityManager): Response
     {
         $list = $entityManager->getRepository(Comments::class)->findAll();

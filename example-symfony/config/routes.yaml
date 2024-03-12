@@ -101,3 +101,7 @@ export_newsList:
 admin_comments:
     path: /admin/commentsList
     controller: App\Controller\Admin\AdminController::commentsList
+
+admin_home:
+    path: /admin/home
+    controller: App\Controller\Admin\AdminController::adminHome
