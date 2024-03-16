@@ -9,6 +9,7 @@ use App\Form\CommentsForm;
 use App\Form\MailForm;
 use App\Services\Export;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,7 +37,7 @@ class DefaultController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Mail $mail */
             $mail = $form->getData();
-            //$mail->setPost($post);
+
 
             $entityManager->persist($mail);
             $entityManager->flush();
@@ -53,7 +54,7 @@ class DefaultController extends AbstractController
             $message->subject('Feedback: [' . $mail->getEmail() . ']');
 
             $mailer->send($message);
-
+            $this->addFlash('success', 'Thanks for your mail!');
             return $this->redirectToRoute('default_home');
 
         }
@@ -100,7 +101,6 @@ class DefaultController extends AbstractController
         $form = $this->createForm(CommentsForm::class);
         $form->handleRequest($request);
 
-        $isSubmitted = false;
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Comments $comment */
             $comment = $form->getData();
@@ -110,13 +110,17 @@ class DefaultController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            $isSubmitted = true;
+
             $form = $this->createForm(CommentsForm::class);
+
+            $this->addFlash('success', 'Thanks for your comment');
+            return $this->redirectToRoute('default_newsOne', [
+                'id' => $id,
+            ]);
         }
         return $this->render('Default/newsOne.html.twig', [
             'post' => $post,
             'form' => $form->createView(),
-            'isSubmitted' => $isSubmitted,
         ]);
     }
 

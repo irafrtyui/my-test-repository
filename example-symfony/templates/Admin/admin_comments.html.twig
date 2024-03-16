@@ -1,5 +1,9 @@
 <div class="comments">
     <h4 class="mb-6">All Comments</h4>
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+        {% endfor %}
     {% for item in list %}
     <ul class="comments-list list-unstyled">
         <li class="d-flex align-items-start mb-5">
@@ -13,8 +17,10 @@
                 <p class="mb-0">
                     {{ item.comment }}
                 </p>
+                <a href="{{ path('admin_commentsDelete', {id:item.id}) }}">[Delete]</a>
             </div>
         </li>
     </ul>
     {% endfor %}
+</div>
 </div>

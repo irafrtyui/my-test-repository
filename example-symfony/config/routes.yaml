@@ -53,7 +53,7 @@ product_cart:
     controller: App\Controller\ProductController::cart
 
 default_home:
-    path: /
+    path: /{_locale}
     controller: App\Controller\DefaultController::home
 
 product_detail:
@@ -105,3 +105,7 @@ admin_comments:
 admin_home:
     path: /admin/home
     controller: App\Controller\Admin\AdminController::adminHome
+
+admin_commentsDelete:
+    path: /admin/commentsDelete/{id}
+    controller: App\Controller\Admin\AdminController::commentsDelete

@@ -36,6 +36,32 @@
         {% endblock %}
     </head>
     <body>
+    <div class="top-bar navbar py-0 w-100 d-block border-bottom">
+        <div class="container d-block">
+            <div class="row align-items-center">
+                <div class="col-md-6 d-none d-md-block">
+                    <span class="small text-muted">{{ 'Free shipping worldwide on order above $150'|trans }}</span>
+                </div>
+                <div class="col-md-6 col-12">
+                    <ul class="nav d-flex justify-content-end align-items-center mb-0">
+
+                        <li class="nav-item dropdown py-1"><a href="{{ path('default_home', {_locale: 'en'}) }}" data-bs-toggle="dropdown"
+                                                              class="dropdown-toggle text-muted nav-link px-1 px-lg-2"><img
+                                        class="align-middle" src="{{ asset('img/usa.png') }}" alt="Choose your language">
+                            </a>
+                            <ul class="mt-0 dropdown-menu dropdown-menu-end dropdown-menu-xs p-2">
+                                <li><a class="dropdown-item px-1 d-flex align-items-center" href="{{ path('default_home', {_locale: 'en'}) }}"><img
+                                                class="width-25 d-block mx-auto h-auto" src="{{ asset('img/usa.png') }}" alt="Usa"></a></li>
+                                <li><a class="dropdown-item px-1 d-flex align-items-center" href="{{ path('default_home', {_locale: 'ru'}) }}"><img
+                                                class="width-25 d-block mx-auto h-auto" src="{{ asset('img/rus.png') }}" alt="Russian"></a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Static navbar -->
     <nav class="navbar py-3 py-lg-0 navbar-light navbar-expand-lg">
         <div class="container d-flex">
@@ -49,13 +75,22 @@
                 </button>
                 <ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
                     <li class="cart-nav nav-item py-lg-3">
-                        <a href="{{ path('default_login') }}" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
+                        {% if app.user is not empty %}
+                        <a href="{{ path('admin_home') }}" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
                             <svg viewBox="0 0 21 21" height="21" width="21">
                                 <path d="M16.2099 6.55345C16.2906 9.70291 13.7989 12.324 10.6445 12.4078C7.49013 12.4916 4.86754 10.0064 4.78681 6.85689C4.70607 3.70744 7.19776 1.08637 10.3522 1.00258C13.5065 0.918785 16.1291 3.404 16.2099 6.55345Z" stroke="currentColor" stroke-width="1.8" fill="none"></path>
                                 <path d="M19.5 19.9997C19.5 19.9997 15.4706 15.668 10.5 15.668C5.52944 15.668 1.5 19.9997 1.5 19.9997" stroke="currentColor" stroke-width="1.8" fill="none"></path>
                             </svg>
                         </a>
                     </li>
+                    {% else %}
+                    <a href="{{ path('default_login') }}" class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
+                        <svg viewBox="0 0 21 21" height="21" width="21">
+                            <path d="M16.2099 6.55345C16.2906 9.70291 13.7989 12.324 10.6445 12.4078C7.49013 12.4916 4.86754 10.0064 4.78681 6.85689C4.70607 3.70744 7.19776 1.08637 10.3522 1.00258C13.5065 0.918785 16.1291 3.404 16.2099 6.55345Z" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+                            <path d="M19.5 19.9997C19.5 19.9997 15.4706 15.668 10.5 15.668C5.52944 15.668 1.5 19.9997 1.5 19.9997" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+                        </svg>
+                    </a>
+                    {% endif %}
                     <li class="cart-nav nav-item py-lg-3 mx-3"><a href="javascript:void(0)"
                                                                   data-bs-toggle="offcanvas" data-bs-target="#cartNavmenu"
                                                                   class="btn btn-outline-secondary border-0 rounded-circle p-0 flex-center size-40 position-relative">
@@ -105,48 +140,28 @@
                 <ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
                     <li class="dropdown py-lg-3 me-lg-4 nav-item">
                         <a href="#" class="dropdown-toggle nav-link  active"
-                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
+                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'Home'|trans }}</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ path('product_show') }}">All goods</a></li>
-                            <li><a class="dropdown-item" href="{{ path('product_category') }}">Category</a></li>
+                            <li><a class="dropdown-item" href="{{ path('product_show') }}">{{ 'All goods'|trans }}</a></li>
+                            <li><a class="dropdown-item" href="{{ path('product_category') }}">{{ 'Category'|trans }}</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown py-lg-3 me-lg-4 nav-item">
                         <a href="#" class="dropdown-toggle nav-link  "
-                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us | Contacts</a>
+                           data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'About us | Contacts'|trans }}</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ path('default_about') }}">About us</a></li>
-                            <li><a class="dropdown-item" href="{{ path('default_contacts') }}">Contacts</a></li>
+                            <li><a class="dropdown-item" href="{{ path('default_about') }}">{{ 'About us'|trans }}</a></li>
+                            <li><a class="dropdown-item" href="{{ path('default_contacts') }}">{{ 'Contacts'|trans }}</a></li>
                         </ul>
                     </li>
-                    <!--mega menu-->
-                    <li class="position-static dropdown py-lg-3 me-lg-4 nav-item">
-                        <a href="#" class="dropdown-toggle nav-link  "
-                           data-bs-toggle="dropdown">Login</a>
-                        <div class="dropdown-menu w-100">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <h6 class="dropdown-header">Shop Pages </h6>
-                                        <div class="mega-menu-list list-unstyled nav">
 
-                                            <a class="dropdown-item" href="{{ path('default_login') }}">Login</a>
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!--menu Features li end here-->
                     <li class="nav-item py-lg-3"><a href="{{ path('default_latestNews') }}"
-                                                    class="nav-link">Blog</a></li>
+                                                    class="nav-link">{{ 'Blog'|trans }}</a></li>
 
                 </ul>
             </div>
+
             <!--/.nav-collapse -->
         </div>
         <!--/.container-fluid -->
@@ -166,9 +181,9 @@
         <div class="container pt-7">
             <div class="row">
                 <div class="col-lg-3 col-sm-6 mb-5">
-                    <h5 class="mb-4">About Store</h5>
+                    <h5 class="mb-4">{{ 'About Store'|trans }}</h5>
                     <p class="text-muted">
-                        It's test store
+                        {{ "It's test store"|trans }}
                     </p>
                     <ul class="d-flex list-unstyled flex-wrap">
                         <li><a href="#!" class="btn p-0 flex-center size-40 me-2 mb-2 btn-outline-secondary rounded-pill"><i class="fab fa-facebook"></i></a></li>
@@ -181,9 +196,9 @@
                 <!--/col-->
                    {{ render(controller('App\\Controller\\DefaultController::newsList')) }}
                     {{ render(controller('App\\Controller\\DefaultController::feedback')) }}
-                    <small class="text-muted d-block">Call us:</small>
+                    <small class="text-muted d-block">{{ 'Call us:'|trans }}</small>
                     <a class="lead" href="#1800-444-3333">8888888888</a><br><br>
-                    <small class="text-muted d-block">Mail us:</small>
+                    <small class="text-muted d-block">{{ 'Mail us:'|trans }}</small>
                     <a class="lead" href="https://uigator.com/cdn-cgi/l/email-protection#0c7f797c7c637e784c6e63606d6268226f6361"><span class="__cf_email__" data-cfemail="56252326263924221634393a3738327835393b">[email&#160;protected]</span></a>
                 </div>
             </div>

@@ -23,10 +23,21 @@
     {% block stylesheets %}
         {{ ux_controller_link_tags() }}
     {% endblock %}
-
+{#
     {% block javascripts %}
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
+#}
+    <!-- Mainly scripts -->
+    <script src="{{ asset('js2/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('js2/popper.min.js') }}"></script>
+    <script src="{{ asset('js2/bootstrap.js') }}"></script>
+    <script src="{{ asset('js2/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+    <script src="{{ asset('js2/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{{ asset('js2/inspinia.js') }}"></script>
+    <script src="{{ asset('js2/plugins/pace/pace.min.js') }}"></script>
 </head>
 
 <body>
@@ -40,8 +51,8 @@
                     <div class="dropdown profile-element">
                         <img alt="image" class="rounded-circle" src="{{ asset('img2/profile_small.jpg') }}"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">David Williams</span>
-                            <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                            <span class="block m-t-xs font-bold">{{ app.user.login }}</span>
+                            <span class="text-muted text-xs block">Admin</span>
                         </a>
                     </div>
                     <div class="logo-element">
@@ -73,18 +84,8 @@
 
 
 
-<!-- Mainly scripts -->
-<script src="{{ asset('js2/jquery-3.1.1.min.js') }}"></script>
-<script src="{{ asset('js2/popper.min.js') }}"></script>
-<script src="{{ asset('js2/bootstrap.js') }}"></script>
-<script src="{{ asset('metisMenu/jquery.metisMenu.js') }}"></script>
-<script src="{{ asset('slimscroll/jquery.slimscroll.min.js') }}"></script>
 
-<!-- Custom and plugin javascript -->
-<script src="{{ asset('js2/inspinia.js') }}"></script>
-<script src="{{ asset('pace/pace.min.js') }}"></script>
 
-<script src="{{ asset('slimscroll/jquery.slimscroll.min.js') }}"></script>
 
 
 </body>

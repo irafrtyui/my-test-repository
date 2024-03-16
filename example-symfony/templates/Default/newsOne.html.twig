@@ -67,11 +67,11 @@
     </div>
                 <hr class="my-5">
                 <h4 class="mb-4">Leave a reply</h4>
-                {% if isSubmitted %}
+                {% for message in app.flashes('success') %}
                     <div class="alert alert-success">
-                Thanks for your comment!
+                {{ message }}
                     </div>
-                {% endif %}
+                {% endfor %}
 
                 {{ form_start(form) }}
 
