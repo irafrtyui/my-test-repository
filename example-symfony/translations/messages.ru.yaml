@@ -9,5 +9,5 @@ Blog: Блог
 "It's test store": Тест
 'Call us:': Связаться с нами
 'Mail us:': Написать нам
-'Free shipping worldwide on order above $150': Бесплатная доставка по всему миру при заказе на сумму более 150 долларов.
+'Free shipping worldwide on order above $ %price%': Бесплатная доставка по всему миру при заказе на сумму более $ %price% .
 

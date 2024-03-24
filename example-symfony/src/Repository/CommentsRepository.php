@@ -21,6 +21,20 @@ class CommentsRepository extends ServiceEntityRepository
         parent::__construct($registry, Comments::class);
     }
 
+    public function GetNewComments(): array
+    {
+        $sql = 'SELECT
+        id,
+        name,
+        comment
+    FROM
+        comments
+    WHERE
+        date > CURDATE() - INTERVAL 1 DAY ';
+        $connection = $this->_em->getConnection();
+        $stm = $connection->prepare($sql);
+        return $stm->executeQuery()->fetchAllAssociative();
+    }
 //    /**
 //     * @return Comments[] Returns an array of Comments objects
 //     */

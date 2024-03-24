@@ -1,0 +1,22 @@
+<strong>New Comments!</strong>
+<br>
+{% for item in comments %}
+<table>
+    <tr>
+        <td>
+            Name:
+        </td>
+        <td>
+            {{ item.name }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Comment:
+        </td>
+        <td>
+            {{ item.comment }}
+        </td>
+    </tr>
+</table>
+{% endfor %}
