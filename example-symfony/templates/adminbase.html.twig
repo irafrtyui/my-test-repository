@@ -60,7 +60,8 @@
                     </div>
                 </li>
                 <li>
-                    <a href="{{ path('admin_comments') }}"><i class="fa fa-th-large"></i> <span class="nav-label">All comments</span> <span class="fa arrow"></span></a>
+                    <a href="{{ path('admin_comments') }}"><i class="fa fa-th-large"></i> <span class="nav-label">All comments</span> </a>
+                    <a href="{{ path('app_admin_post_index') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Posts</span> </a>
                 </li>
 
 
@@ -70,9 +71,10 @@
 
         </div>
     </nav>
-    {% block body %}
-    {% endblock %}
+    {
     <div id="page-wrapper" class="gray-bg">
+        {% block body %}
+        {% endblock %}
         <div class="footer" >
             <div>
                  KIABI &copy; 2024

@@ -1,26 +1,35 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}
+    ADMIN Comments
+{% endblock %}
+
+{% block body %}
+    <br>
+    <a href="{{ path('admin_home') }}">Hide</a>
+    <hr>
+
 <div class="comments">
     <h4 class="mb-6">All Comments</h4>
     {% for message in app.flashes('success') %}
     <div class="alert alert-success">
         {{ message }}
+    </div>
         {% endfor %}
+    <table class="table">
     {% for item in list %}
-    <ul class="comments-list list-unstyled">
-        <li class="d-flex align-items-start mb-5">
-            <div class="flex-grow-1">
-                <div class="d-flex mb-2 align-items-center justify-content-between">
-                    <div>
-                        <h5 class="mb-0">{{ item.name }}</h5>
-                        <small class="text-muted">{{ item.date|format_date }}</small>
-                    </div>
-                </div>
-                <p class="mb-0">
-                    {{ item.comment }}
-                </p>
-                <a href="{{ path('admin_commentsDelete', {id:item.id}) }}">[Delete]</a>
-            </div>
-        </li>
-    </ul>
+
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.date|format_date }}</td>
+            <td>{{ item.comment }}</td>
+            <td><a href="{{ path('admin_commentsDelete', {id:item.id}) }}">[Delete]</a></td>
+        </tr>
     {% endfor %}
+    </table>
 </div>
-</div>
+
+{% endblock %}
+
+
+

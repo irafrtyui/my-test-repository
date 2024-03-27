@@ -30,9 +30,13 @@ class CommentsRepository extends ServiceEntityRepository
     FROM
         comments
     WHERE
-        date > CURDATE() - INTERVAL 1 DAY ';
+        date > :date ';
+
+        $timestamp = strtotime('-1 DAY');
+        $date = date('Y-m-d', $timestamp);
         $connection = $this->_em->getConnection();
         $stm = $connection->prepare($sql);
+        $stm->bindValue(':date', $date);
         return $stm->executeQuery()->fetchAllAssociative();
     }
 //    /**

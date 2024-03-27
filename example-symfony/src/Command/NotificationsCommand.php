@@ -34,13 +34,14 @@ class NotificationsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $comments = $entityManager->getRepository(Comments::class)->GetNewComments();
+        $comments = $this->entityManager->getRepository(Comments::class)->GetNewComments();
 
         $message = new TemplatedEmail();
         $message->from('alex.course.test@gmail.com');
         $message->to('irafrtyui@ukr.net');
         $message->text('You have new comments!');
         $message->htmlTemplate('Mail/notifications.html.twig');
+        $message->context(['comments' => $comments]);
         $message->subject('A new comments');
 
         $this->mailer->send($message);
