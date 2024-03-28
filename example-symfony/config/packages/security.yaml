@@ -20,6 +20,7 @@ security:
             form_login:
                 login_path: default_login
                 check_path: default_login
+                success_handler: App\EventListener\AuthSuccessHandler
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

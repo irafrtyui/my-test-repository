@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,6 +21,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $password = null;
+
+    #[ORM\Column]
+    private ?int $login_cnt = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $login_at = null;
+
+    #[ORM\Column]
+    private ?int $non_login_cnt = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $non_login_at = null;
 
     public function getId(): ?int
     {
@@ -63,5 +76,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserIdentifier(): string
     {
         return $this->login;
+    }
+
+    public function getLoginCnt(): ?int
+    {
+        return $this->login_cnt;
+    }
+
+    public function setLoginCnt(int $login_cnt): static
+    {
+        $this->login_cnt = $login_cnt;
+
+        return $this;
+    }
+
+    public function getLoginAt(): ?\DateTimeInterface
+    {
+        return $this->login_at;
+    }
+
+    public function setLoginAt(\DateTimeInterface $login_at): static
+    {
+        $this->login_at = $login_at;
+
+        return $this;
+    }
+
+    public function getNonLoginCnt(): ?int
+    {
+        return $this->non_login_cnt;
+    }
+
+    public function setNonLoginCnt(int $non_login_cnt): static
+    {
+        $this->non_login_cnt = $non_login_cnt;
+
+        return $this;
+    }
+
+    public function getNonLoginAt(): ?\DateTimeInterface
+    {
+        return $this->non_login_at;
+    }
+
+    public function setNonLoginAt(\DateTimeInterface $non_login_at): static
+    {
+        $this->non_login_at = $non_login_at;
+
+        return $this;
     }
 }
