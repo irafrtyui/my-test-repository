@@ -21,7 +21,7 @@ security:
                 login_path: default_login
                 check_path: default_login
                 success_handler: App\EventListener\AuthSuccessHandler
-
+                failure_handler: App\EventListener\AuthFailureHandler
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 

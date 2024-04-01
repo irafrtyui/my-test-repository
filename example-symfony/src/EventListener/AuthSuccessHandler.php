@@ -23,6 +23,7 @@ class AuthSuccessHandler implements AuthenticationSuccessHandlerInterface
     $user = $token->getUser();
     $user->setLoginAt(new \DateTimeImmutable());
     $user->setLoginCnt($user->getLoginCnt() + 1);
+    $user->setNonLoginCnt($user->getNonLoginCnt() * 0 );
 
     $this->entityManager->flush();
 

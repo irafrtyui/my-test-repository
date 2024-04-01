@@ -21,8 +21,8 @@ class AuthFailureHandler implements AuthenticationFailureHandlerInterface
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): Response
     {
-    $user = $exception->getToken()->getUser();
-
+    //$user = $exception->getToken()->getUser();
+        $user = $request->request->get('_username');
     $user->setNonLoginAt(new \DateTimeImmutable());
     $user->setNonLoginCnt($user->getNonLoginCnt() + 1);
 
