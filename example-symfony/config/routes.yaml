@@ -86,10 +86,6 @@ default_contacts:
     path: /default/contacts
     controller: App\Controller\DefaultController::contacts
 
-cart_cart:
-    path: /cart/cart
-    controller: App\Controller\CartController::cart
-
 default_newsList:
     path: /default/newsList
     controller: App\Controller\DefaultController::newsList
@@ -109,3 +105,19 @@ admin_home:
 admin_commentsDelete:
     path: /admin/commentsDelete/{id}
     controller: App\Controller\Admin\AdminController::commentsDelete
+
+cart_viewCart:
+    path: /cart/viewCart
+    controller: App\Controller\CartController::viewCart
+
+cart_add:
+    path: /cart/addCart/{id}
+    controller: App\Controller\CartController::addCart
+
+cart_del:
+    path: /cart/delCart/{id}
+    controller: App\Controller\CartController::delCart
+
+cart_delete:
+    path: /cart/deleteCart/{id}
+    controller: App\Controller\CartController::deleteCart

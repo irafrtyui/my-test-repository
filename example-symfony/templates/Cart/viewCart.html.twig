@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    ViewCart!
+{% endblock %}
+
+{% block body %}
+    <main>
+        <section class="border-top">
+            <div class="container py-7">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4 class="mb-3">Your cart <span>(3)</span></h4>
+                        <ul class="list-group mb-4">
+                            {% for item in list %}
+                                <li class="list-group-item">
+                                    <div class="row align-items-center">
+                                        <div class="col-4 col-md-3 mb-4 mb-sm-0">
+                                            <a href="#!">
+                                                <img src="{{ item.product.image }}" class="img-fluid rounded-3" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="col-8 col-md-9">
+                                            <div class="position-relative pe-5">
+                                                <!--Remove button-->
+                                                <a href="{{ path('cart_delete', {id: item.product.id}) }}" class="text-muted position-absolute end-0 top-0 me-3 mt-3"><i class="far fa-trash-alt"></i></a>
+                                                <!--Brand-->
+                                                <p class="mb-1 small"><a href="#!">{{ item.product.name }}</a></p>
+                                                <!--Product-->
+                                                <h5 class="mb-2">
+                                                    <a href="#!">{{ item.product.description }}</a>
+                                                </h5>
+                                                <!--Price-->
+                                                <p class="mb-3">${{ item.product.price }}</p>
+                                                <!--Quantity-->
+                                                <div class="d-flex align-items-center mb-0">
+                                                    <small class="text-muted me-3">QTY</small>
+                                                    <div class="count-input">
+                                                        <a class="incr-btn" data-action="decrease" href="{{ path('cart_del', {id: item.product.id}) }}">–</a>
+                                                        <input readonly class="quantity px-0 py-0 form-control bg-transparent" type="text" value="{{ item.qty }}">
+                                                        <a class="incr-btn" data-action="increase" href="{{ path('cart_add', {id: item.product.id}) }}">+</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            <!--Cart item-->
+
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <!--Price details-->
+                        <div class="card card-body mb-4">
+                            <h6 class="mb-3">Price details</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0 d-flex align-items-center justify-content-between">
+                                    <span>Total</span>
+                                    <span>$1698</span>
+                                </li>
+
+                                <li class="list-group-item px-0 d-flex align-items-center justify-content-between">
+                                    <strong>Total amount</strong>
+                                    <strong>$1698</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-grid">
+                            <a href="checkout-details.html" class="btn btn-secondary">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
