@@ -6,6 +6,11 @@
 
 {% block body %}
     <div class="container py-7">
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
         <div class="row">
             <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="50">
                 <a class="image-box bg-dark" href="{{ path('default_latestNews') }}">

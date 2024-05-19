@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Contacts!
+{% endblock %}
+
+{% block body %}
+    <div class="page-breadcrumb py-5 py-lg-7 bg-info bg-opacity-10">
+        <div class="container">
+            <h2 class="display-6 mb-0">Checkout</h2>
+        </div>
+    </div>
+
+    <main>
+        <section class="position-relative">
+            <div class="container py-7">
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h3>Process form</h3>
+                    </div>
+                    <div class="col-sm-7">
+                        {{ form_start(form) }}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-12 mb-3">
+                                            {{ form_widget(form.name) }}
+                                        </div>
+                                        <div class="col-sm-12 mb-3">
+                                            {{ form_widget(form.email) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button type="submit" name="submit" class="btn btn-lg btn-info">Process!</button>
+                                </div>
+                            </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

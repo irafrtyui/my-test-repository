@@ -18,7 +18,7 @@
                         </a>
                     </div>
                     <div class="position-relative pe-5 flex-grow-1">
-                        <a href="#!"
+                        <a href="{{ path('cart_delete', {id: item.product.id}) }}"
                            class="flex-center text-muted rounded-circle position-absolute end-0 top-50 translate-middle-y">
                             <i class="fas fa-trash-alt"></i></a>
                         <h6 class="mb-1"><a href="#">{{ item.product.name }}</a></h6>
@@ -32,7 +32,7 @@
         <!--Cart action-->
         <div class="offcanvas-footer p-4">
             <div class="text-center d-grid">
-                <a href="checkout-details.html" class="btn btn-secondary mb-2">Checkout</a>
+                <a href="{{ path('cart_checkout') }}" class="btn btn-secondary mb-2">Checkout</a>
                 <a href="{{ path('cart_viewCart') }}" class="btn btn-link">View Cart</a>
             </div>
         </div>
