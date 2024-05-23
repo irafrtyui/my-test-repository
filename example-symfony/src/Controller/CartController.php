@@ -27,9 +27,14 @@ class CartController extends AbstractController
     public function viewCart(Session $session): Response
     {
         $list = $session->get('cart');
+        $price = 0;
+        foreach ($list as $item){
+            $price = $price + ($item['product']->getPrice() * $item['qty']);
+        }
 
         return $this->render('Cart/viewCart.html.twig', [
             'list' => $list,
+            'price' => $price,
         ]);
     }
 

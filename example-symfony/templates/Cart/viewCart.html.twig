@@ -56,18 +56,11 @@
                         <!--Price details-->
                         <div class="card card-body mb-4">
                             <h6 class="mb-3">Price details</h6>
-                            {% for item in list %}
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item px-0 d-flex align-items-center justify-content-between">
-                                    <span>Total</span>
-                                    <span>${{ item.product.price * item.qty }}</span>
-                                </li>
-
-                                <li class="list-group-item px-0 d-flex align-items-center justify-content-between">
                                     <strong>Total amount</strong>
-                                    <strong>${{ item.product.price * item.qty }}</strong>
+                                    <strong>${{ price }}</strong>
                                 </li>
-                                {% endfor %}
                             </ul>
                         </div>
                         <div class="d-grid">
