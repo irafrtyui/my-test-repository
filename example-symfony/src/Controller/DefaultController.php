@@ -28,6 +28,13 @@ class DefaultController extends AbstractController
         return $this->render('Default/home.html.twig');
     }
 
+    public function nonLocale(): Response
+    {
+        return $this->redirectToRoute('default_home', [
+            '_locale' => 'en',
+        ]);
+    }
+
     public function feedback(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
     {
         $form = $this->createForm(MailForm::class);

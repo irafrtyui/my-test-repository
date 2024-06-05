@@ -3,6 +3,7 @@
 namespace App\EventListener;
 
 
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Monolog\DateTimeImmutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -21,13 +22,18 @@ class AuthFailureHandler implements AuthenticationFailureHandlerInterface
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): Response
     {
-    //$user = $exception->getToken()->getUser();
-        $user = $request->request->get('_username');
-    $user->setNonLoginAt(new \DateTimeImmutable());
-    $user->setNonLoginCnt($user->getNonLoginCnt() + 1);
 
-    $this->entityManager->flush();
+        $login = $request->request->get('_username');
+        $user = $this->entityManager->getRepository(User::class)->findOneBy([
+           'login' => $login,
+        ]);
+        if(false == empty($user)){
+            $user->setNonLoginAt(new \DateTimeImmutable());
+            $user->setNonLoginCnt($user->getNonLoginCnt() + 1);
 
-    return new RedirectResponse('/');
+            $this->entityManager->flush();
+        }
+
+    return new RedirectResponse('/default/login');
     }
 }

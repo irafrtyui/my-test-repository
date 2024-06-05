@@ -27,6 +27,6 @@ class AuthSuccessHandler implements AuthenticationSuccessHandlerInterface
 
     $this->entityManager->flush();
 
-    return new \Symfony\Component\HttpFoundation\RedirectResponse('/');
+    return new \Symfony\Component\HttpFoundation\RedirectResponse('/admin/home');
     }
 }

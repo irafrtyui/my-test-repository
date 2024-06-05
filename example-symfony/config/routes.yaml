@@ -56,6 +56,10 @@ default_home:
     path: /{_locale}
     controller: App\Controller\DefaultController::home
 
+default_nonLocale:
+    path: /
+    controller: App\Controller\DefaultController::nonLocale
+
 product_detail:
     path: /product/detail_1/{id}
     controller: App\Controller\ProductController::product_detail

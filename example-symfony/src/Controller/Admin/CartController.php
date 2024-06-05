@@ -46,12 +46,12 @@ class CartController extends AbstractController
     #[Route('/{id}', name: 'app_admin_cart_show', methods: ['GET'])]
     public function show(int $id, EntityManagerInterface $entityManager, Cart $cart): Response
     {
-        $cartProduct = $entityManager->getRepository(CartProduct::class)->find($id);
-        $product = $cartProduct->getProduct();
+        $cartProducts = $entityManager->getRepository(CartProduct::class)->findBy([
+            'cart' => $id]);
+
         return $this->render('admin/cart/show.html.twig', [
             'cart' => $cart,
-            'cartProduct' => $cartProduct,
-            'product' => $product,
+            'cartProducts' => $cartProducts,
         ]);
     }
 
