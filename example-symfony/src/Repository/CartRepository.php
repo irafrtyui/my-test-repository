@@ -21,6 +21,21 @@ class CartRepository extends ServiceEntityRepository
         parent::__construct($registry, Cart::class);
     }
 
+    public function GetCart(): array
+    {
+        $sql = 'select 
+       cart.id,
+       cart.name, 
+       cart.email,
+       cart.price,
+       cart.created_at
+        from cart
+        ';
+        $connection = $this->_em->getConnection();
+        $stm = $connection->prepare($sql);
+        return $stm->executeQuery()->fetchAllAssociative();
+    }
+
 //    /**
 //     * @return Cart[] Returns an array of Cart objects
 //     */

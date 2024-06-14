@@ -17,8 +17,16 @@ class CartForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
-        $builder->add('email');
+        $builder->add('name', null, [
+            'attr' => [
+                'placeholder' => 'Name'
+            ]
+        ]);
+        $builder->add('email', null, [
+            'attr' => [
+                'placeholder' => 'Email'
+            ]
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
