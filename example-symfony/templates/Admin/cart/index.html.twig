@@ -9,11 +9,14 @@
                 <h1>Cart orders</h1>
                 <a href="{{ path('export_cart') }}">Download</a>
             </div>
+            <form action="{{ path('delete_cart') }}" method="post">
             <div class="ibox-content">
                 <table class="table">
                     <thead>
                     <tr>
+                        <th></th>
                         <th>Id</th>
+                        <th><input type="checkbox" name="select_all" value="all"/></th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>CreatedAt</th>
@@ -22,9 +25,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for cart in carts %}
+                    {% for cart in list %}
                         <tr>
                             <td>{{ cart.id }}</td>
+                            <td><input type="checkbox" name="check[]" value="<?={{ cart.id }}?>" /> </td>
                             <td>{{ cart.name }}</td>
                             <td>{{ cart.price }}</td>
                             <td>{{ cart.createdAt ? cart.createdAt|date('Y-m-d H:i:s') : '' }}</td>
@@ -41,7 +45,9 @@
                     {% endfor %}
                     </tbody>
                 </table>
+                <input type="submit" value="Delete">
             </div>
+            </form>
         </div>
     </div>
 {% endblock %}

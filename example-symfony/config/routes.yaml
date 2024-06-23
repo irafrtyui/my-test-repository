@@ -133,3 +133,7 @@ cart_checkout:
 export_cart:
     path: /admin/exportCart
     controller: App\Controller\Admin\AdminController::exportCart
+
+delete_cart:
+    path: /admin/deleteCart
+    controller: App\Controller\Admin\AdminController::deleteCart

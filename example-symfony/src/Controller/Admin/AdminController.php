@@ -55,4 +55,13 @@ class AdminController extends AbstractController
         return $response;
     }
 
+    public function deleteCart(int $id, EntityManagerInterface $entityManager)
+    {
+        $list = $entityManager->getRepository(Cart::class)->findAll();
+
+        return $this->render('Admin/cart/index.html.twig', [
+            'list' => $list,
+        ]);
+    }
+
 }
